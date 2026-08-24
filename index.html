@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alterna Çizgi. Türkçe Çizgi Film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#171233; --card:#211a45; --card2:#2b2258; --ink:#f2edff; --muted:#a89ccb;
+    --coral:#ff5c8a; --sky:#3fd8ff; --mint:#5bf2c0; --sun:#ffd166; --grape:#a97bff;
+    --border:rgba(255,255,255,.12); --shadow:0 10px 30px rgba(8,4,26,.55);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,Arial,sans-serif;
+   background-image:radial-gradient(circle at 14% 6%, rgba(63,216,255,.18), transparent 38%),
+    radial-gradient(circle at 86% 2%, rgba(255,92,138,.20), transparent 36%),
+    radial-gradient(circle at 74% 94%, rgba(91,242,192,.15), transparent 38%),
+    radial-gradient(circle at 6% 88%, rgba(169,123,255,.18), transparent 36%);background-attachment:fixed;}
+  h1,h2,h3,.brand-name,.p-title{font-family:'Baloo 2',system-ui,cursive;}
+  a{color:inherit;text-decoration:none;} button{font-family:inherit;}
+  ::-webkit-scrollbar{width:11px;height:11px;} ::-webkit-scrollbar-thumb{background:#3b3070;border-radius:9px;}
+
+  .wrap{max-width:1220px;margin:0 auto;padding:0 22px;}
+  .topbar{position:sticky;top:12px;z-index:60;margin:12px auto 0;max-width:1220px;padding:0 22px;}
+  .tp{background:rgba(33,26,69,.92);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);
+    display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 16px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:11px;}
+  .logo{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--sky),var(--grape));border:none;
+    display:flex;align-items:center;justify-content:center;flex:none;}
+  .brand-name{font-weight:800;font-size:17px;line-height:1;}
+  .brand-sub{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:3px;}
+  .navl{display:flex;gap:5px;flex-wrap:wrap;}
+  .navl button{background:none;border:none;padding:9px 15px;border-radius:999px;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;}
+  .navl button.active{background:var(--card2);color:#fff;}
+  .rnd{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--coral),var(--grape));color:#fff;font-weight:800;font-size:14px;
+    padding:12px 20px;border-radius:999px;border:none;box-shadow:0 8px 22px rgba(255,92,138,.4);cursor:pointer;}
+  .rnd:active{transform:translateY(2px);}
+
+  .view{display:none;padding:30px 0 70px;} .view.active{display:block;}
+  .eyebrow{display:inline-flex;background:var(--card);border:1px solid var(--border);padding:7px 15px;border-radius:999px;
+    font-size:12px;font-weight:800;color:var(--sky);}
+  h1.headline{font-size:44px;line-height:1.08;font-weight:800;margin:18px 0 14px;max-width:640px;}
+  .mark{background:linear-gradient(135deg,var(--sky),var(--mint));color:#171233;padding:0 12px;border-radius:12px;display:inline-block;transform:rotate(-1.5deg);}
+  .lede{font-size:16px;color:var(--muted);max-width:540px;line-height:1.6;margin-bottom:24px;font-weight:600;}
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;}
+  .blobs{position:relative;height:320px;}
+  .blob{position:absolute;border:1px solid var(--border);border-radius:26px;box-shadow:var(--shadow);color:#171233;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px;text-align:center;}
+  .blob b{font-family:'Baloo 2';font-size:13px;line-height:1.15;}
+  .blob small{font-size:11px;font-weight:700;opacity:.75;}
+  .b1{width:140px;height:140px;top:6px;left:24px;background:var(--sky);transform:rotate(-7deg);}
+  .b2{width:120px;height:120px;top:34px;right:24px;background:var(--sun);transform:rotate(6deg);}
+  .b3{width:124px;height:124px;bottom:22px;left:0;background:var(--mint);transform:rotate(4deg);}
+  .b4{width:132px;height:132px;bottom:0;right:56px;background:var(--grape);color:#fff;transform:rotate(-5deg);}
+
+  .stats{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0;}
+  .st{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:15px 20px;min-width:132px;}
+  .st b{display:block;font-family:'Baloo 2';font-size:26px;}
+  .st span{font-size:12.5px;color:var(--muted);font-weight:700;}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px;}
+  .step{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:18px;}
+  .step .n{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--sky),var(--grape));color:#fff;border:none;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:10px;}
+  .step h3{font-size:15.5px;margin:0 0 7px;} .step p{font-size:13px;color:var(--muted);line-height:1.55;margin:0;font-weight:600;}
+
+  .lvlbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px;}
+  .lvlbar .lb{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-right:3px;}
+  .lp{padding:9px 17px;border-radius:999px;font-weight:800;font-size:14px;background:var(--card);border:1px solid var(--border);
+    color:var(--ink);cursor:pointer;}
+  .lp span{opacity:.6;margin-left:5px;font-size:12.5px;}
+  .lp.on{background:linear-gradient(135deg,var(--sky),var(--grape));color:#fff;border-color:transparent;}
+  .keybar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);border:1px solid var(--border);
+    border-radius:18px;padding:13px 16px;margin-bottom:14px;}
+  .kb-left{display:flex;align-items:center;gap:9px;flex:1;min-width:230px;}
+  .kb-dot{width:9px;height:9px;border-radius:50%;background:var(--sun);flex:none;box-shadow:0 0 10px var(--sun);}
+  .keybar.on .kb-dot{background:var(--mint);box-shadow:0 0 10px var(--mint);}
+  .kb-txt{font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.45;}
+  .keybar input{flex:1;min-width:180px;background:var(--card2);border:1px solid var(--border);border-radius:11px;
+    padding:9px 13px;color:var(--ink);font-size:12.5px;outline:none;font-family:inherit;font-weight:600;}
+  .kb-btn{background:linear-gradient(135deg,var(--sky),var(--grape));color:#fff;border:none;border-radius:11px;
+    padding:10px 17px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:inherit;}
+  .kb-help{font-size:12.5px;color:var(--sky);font-weight:700;text-decoration:underline;}
+  .kb-clear{background:var(--card2);border:1px solid var(--border);color:var(--muted);border-radius:10px;
+    width:32px;height:32px;font-size:17px;cursor:pointer;font-weight:800;}
+  .toolbar{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:16px;margin-bottom:18px;}
+  .trow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
+  .sbox{flex:1;min-width:200px;display:flex;align-items:center;gap:8px;background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:10px 14px;}
+  .sbox input{border:none;outline:none;background:transparent;font-size:14px;width:100%;color:var(--ink);font-weight:600;font-family:inherit;}
+  .sel{display:flex;align-items:center;gap:7px;background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:8px 12px;}
+  .sel label{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:800;}
+  .sel select{border:none;background:transparent;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;font-family:inherit;}
+  .vt{display:flex;background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:3px;}
+  .vt button{background:none;border:none;padding:7px 13px;border-radius:11px;font-size:13px;font-weight:800;color:var(--muted);cursor:pointer;}
+  .vt button.active{background:var(--grape);color:#fff;}
+  .flab{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:800;margin:12px 0 7px;}
+  .frow{display:flex;flex-wrap:wrap;gap:7px;}
+  .fc{padding:8px 15px;border-radius:999px;font-size:13px;font-weight:700;background:var(--card2);border:1px solid var(--border);color:var(--ink);cursor:pointer;}
+  .fc .n{opacity:.55;margin-left:5px;}
+  .fc.on{background:rgba(63,216,255,.2);border-color:var(--sky);color:var(--sky);}
+  .tbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:12px;margin-top:12px;border-top:1px solid var(--border);}
+  .found{font-size:13.5px;color:var(--muted);font-weight:700;} .found b{color:var(--ink);}
+  .fnote{display:block;font-size:11.5px;color:#a297ad;margin-top:3px;font-weight:600;}
+  .reset{background:var(--card2);border:1px solid var(--border);color:var(--ink);border-radius:999px;padding:9px 17px;font-size:13px;font-weight:800;cursor:pointer;}
+  .hint{font-size:13px;color:var(--muted);margin:0 0 16px;font-weight:600;}
+
+  .sec{margin-bottom:32px;}
+  .sech{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .sech h3{font-size:22px;margin:0;white-space:nowrap;}
+  .sech hr{flex:1;border:none;border-top:1px solid var(--border);}
+  .sech .cnt{background:var(--card2);color:var(--sky);border:1px solid var(--border);font-size:12.5px;font-weight:800;padding:4px 12px;border-radius:999px;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(184px,1fr));gap:18px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;
+    box-shadow:var(--shadow);cursor:pointer;transition:transform .12s ease,border-color .12s ease;}
+  .card:hover{transform:translateY(-4px);border-color:var(--grape);}
+  .poster{position:relative;aspect-ratio:4/5;overflow:hidden;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:8px;padding:36px 12px 20px;text-align:center;border-bottom:1px solid var(--border);}
+  .poster::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 26% 20%, rgba(255,255,255,.42), transparent 55%);}
+  .p-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;}
+  .pb{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;z-index:4;}
+  .b-lvl{background:rgba(15,10,40,.8);color:#fff;border:none;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;backdrop-filter:blur(4px);}
+  .b-fmt{font-size:9.5px;font-weight:800;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:none;color:#171233;}
+  .fmt-serial{background:var(--sky);} .fmt-film{background:var(--sun);} .fmt-short{background:var(--mint);} .fmt-dub{background:#ffb3d1;}
+  .p-glyph{position:relative;z-index:2;width:46px;height:46px;border-radius:16px;background:rgba(255,255,255,.28);
+    border:1px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;}
+  .p-title{position:relative;z-index:2;font-size:15px;font-weight:800;line-height:1.2;color:#171233;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  .p-year{position:relative;z-index:2;font-size:12px;font-weight:800;opacity:.65;color:#171233;}
+  .cb{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1;}
+  .cb h4{font-family:'Baloo 2';font-size:15px;margin:0;line-height:1.2;}
+  .cb .meta{font-size:12px;color:var(--muted);font-weight:700;}
+  .cb p{font-size:12.5px;color:var(--muted);line-height:1.45;margin:0;flex:1;font-weight:600;}
+  .links{display:flex;gap:6px;margin-top:9px;}
+  .links a{flex:1;text-align:center;padding:8px 0;border-radius:11px;font-size:12px;font-weight:800;background:var(--card2);border:1px solid var(--border);}
+  .links a:hover{background:var(--grape);color:#fff;border-color:var(--grape);}
+
+  .list{display:flex;flex-direction:column;gap:11px;}
+  .row{background:var(--card);border:1px solid var(--border);border-radius:18px;display:flex;align-items:center;gap:14px;padding:11px 16px;cursor:pointer;}
+  .mini{width:50px;height:60px;border-radius:12px;border:1px solid var(--border);flex:none;position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;}
+  .mini span{font-family:'Baloo 2';font-weight:800;font-size:15px;position:relative;z-index:2;color:#171233;}
+  .ri{flex:1;min-width:0;} .ri h4{font-family:'Baloo 2';font-size:15px;margin:0 0 2px;}
+  .ri .meta{font-size:12px;color:var(--muted);font-weight:700;}
+  .rm{display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex:none;}
+  .rl{display:flex;gap:6px;flex:none;}
+  .rl a{padding:8px 13px;border-radius:11px;font-size:12px;font-weight:800;background:var(--card2);border:1px solid var(--border);}
+  .rl a:hover{background:var(--grape);color:#fff;border-color:var(--grape);}
+
+  .empty{color:var(--muted);font-size:14px;padding:26px 0;font-weight:700;}
+  .faq{background:var(--card);border:1px solid var(--border);border-radius:18px;margin-bottom:10px;overflow:hidden;}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;padding:16px 19px;cursor:pointer;font-weight:800;font-size:15px;}
+  .faq-a{padding:0 19px 16px;color:var(--muted);font-size:14px;line-height:1.6;display:none;font-weight:600;}
+  .faq.open .faq-a{display:block;}
+  footer.foot{margin-top:34px;border-top:1px solid var(--border);padding-top:18px;color:var(--muted);font-size:13px;line-height:1.6;max-width:780px;font-weight:600;}
+
+  .modal{position:fixed;inset:0;background:rgba(8,4,26,.78);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;z-index:200;padding:22px;}
+  .modal.open{display:flex;}
+  .mbox{position:relative;background:var(--card);border:1px solid var(--border);border-radius:26px;max-width:820px;width:100%;
+    max-height:88vh;overflow-y:auto;box-shadow:0 30px 70px rgba(4,2,16,.7);}
+  .mx{position:absolute;top:12px;right:12px;z-index:5;background:var(--card2);border:1px solid var(--border);color:var(--ink);width:36px;height:36px;
+    border-radius:12px;font-size:20px;cursor:pointer;font-weight:800;}
+  .mgrid{display:grid;grid-template-columns:290px 1fr;}
+  .mposter{position:relative;aspect-ratio:4/5;overflow:hidden;border-right:1px solid var(--border);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:26px 16px;text-align:center;}
+  .mposter img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;}
+  .minfo{padding:24px 26px 26px;}
+  .mbg{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+  .m-lv{background:var(--card2);border:1px solid var(--border);font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;}
+  .minfo h2{font-size:27px;margin:0 0 5px;line-height:1.12;}
+  .mmeta{font-size:13.5px;color:var(--muted);margin-bottom:14px;font-weight:700;}
+  .mdesc{font-size:14.5px;line-height:1.6;margin:0 0 20px;font-weight:600;}
+  .mblk{margin-bottom:15px;}
+  .mlab{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800;margin-bottom:8px;}
+  .mlinks{display:flex;flex-wrap:wrap;gap:7px;}
+  .mlinks a{padding:10px 16px;border-radius:12px;font-size:13px;font-weight:800;background:var(--card2);border:1px solid var(--border);}
+  .mlinks a:hover{background:var(--grape);color:#fff;border-color:var(--grape);} .mlinks a.pri{background:linear-gradient(135deg,var(--coral),var(--grape));color:#fff;border-color:transparent;}
+  .mtip{font-size:12.5px;color:var(--muted);line-height:1.5;border-top:1px solid var(--border);padding-top:12px;font-weight:600;}
+
+  @media (max-width:980px){ .hero{grid-template-columns:1fr;} .blobs{height:250px;} .steps{grid-template-columns:repeat(2,1fr);} h1.headline{font-size:32px;} }
+  @media (max-width:700px){ .mgrid{grid-template-columns:1fr;} .mposter{border-right:none;border-bottom:1px solid var(--border);aspect-ratio:16/10;} }
+  @media (max-width:560px){ .steps{grid-template-columns:1fr;} .grid{grid-template-columns:repeat(2,1fr);} }
+
+  /* ============ v2: визуализация, дорожная карта, мои мультики, ассистент ============ */
+  .hblock{margin:44px 0 0;}
+  .hhead{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:6px;}
+  .hhead h2{font-size:26px;margin:0;}
+  .hhead .tag{background:var(--card2);border:1px solid var(--border);color:var(--muted);font-size:11.5px;font-weight:800;
+    text-transform:uppercase;letter-spacing:.06em;padding:6px 12px;border-radius:999px;}
+  .hsub{color:var(--muted);font-size:15px;line-height:1.6;margin:6px 0 18px;max-width:820px;}
+
+  /* --- инструкция --- */
+  .howto{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+  .hw{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:16px;position:relative;overflow:hidden;
+    transition:transform .25s,border-color .25s;}
+  .hw:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.28);}
+  .hw .hwn{width:34px;height:34px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2';
+    font-weight:800;font-size:17px;color:#171233;margin-bottom:10px;}
+  .hw h4{margin:0 0 5px;font-size:15.5px;font-family:'Baloo 2';}
+  .hw p{margin:0;font-size:13px;color:var(--muted);line-height:1.55;}
+  .hw .spark{position:absolute;right:-18px;bottom:-18px;width:78px;height:78px;border-radius:50%;opacity:.13;}
+
+  /* --- дорожная карта --- */
+  .rmapwrap{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:20px 20px 24px;}
+  .rmaptop{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between;margin-bottom:16px;}
+  .rmaptop b{font-family:'Baloo 2';font-size:17px;}
+  .rbar{flex:1;min-width:200px;height:10px;border-radius:999px;background:var(--card2);overflow:hidden;position:relative;}
+  .rbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--sky),var(--mint));
+    transition:width 1.1s cubic-bezier(.22,1,.36,1);}
+  .rbadge{font-size:12.5px;font-weight:800;color:var(--muted);}
+  .rmap{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;position:relative;}
+  .rmap::before{content:"";position:absolute;left:6%;right:6%;top:26px;height:3px;border-radius:9px;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,.18) 0 12px,transparent 12px 22px);}
+  .rst{position:relative;background:var(--card2);border:1px solid var(--border);border-radius:20px;padding:14px;
+    transition:transform .3s,box-shadow .3s,border-color .3s;}
+  .rst:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(8,4,26,.5);border-color:rgba(255,255,255,.3);}
+  .rdot{width:38px;height:38px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2';
+    font-weight:800;font-size:15px;color:#171233;position:relative;z-index:2;margin:0 auto 10px;box-shadow:0 6px 16px rgba(8,4,26,.45);}
+  .rst.done .rdot{background:linear-gradient(135deg,var(--mint),#2fd0a6)!important;}
+  .rst.done::after{content:"";position:absolute;top:10px;right:10px;width:9px;height:9px;border-radius:50%;background:var(--mint);
+    box-shadow:0 0 0 4px rgba(91,242,192,.18);}
+  .rst h4{margin:0 0 3px;font-size:15px;text-align:center;font-family:'Baloo 2';}
+  .rst .rgoal{font-size:12.5px;color:var(--muted);line-height:1.5;text-align:center;margin:0 0 10px;min-height:56px;}
+  .rmini{height:6px;border-radius:9px;background:rgba(0,0,0,.28);overflow:hidden;margin-bottom:10px;}
+  .rmini i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sun),var(--coral));transition:width .9s ease .2s;}
+  .rchips{display:flex;flex-direction:column;gap:5px;}
+  .rchip{display:flex;align-items:center;gap:7px;background:rgba(0,0,0,.22);border:1px solid var(--border);border-radius:11px;
+    padding:6px 9px;font-size:12.5px;font-weight:700;cursor:pointer;text-align:left;color:var(--ink);width:100%;
+    transition:background .2s,transform .2s;}
+  .rchip:hover{background:rgba(255,255,255,.12);transform:translateX(3px);}
+  .rchip .tick{width:15px;height:15px;border-radius:5px;border:2px solid var(--muted);flex:none;display:flex;align-items:center;justify-content:center;font-size:9px;}
+  .rchip.seen .tick{background:var(--mint);border-color:var(--mint);color:#12321f;}
+  .rchip span.nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rmore{margin-top:8px;width:100%;background:none;border:1px dashed var(--border);color:var(--muted);border-radius:11px;
+    padding:6px;font-size:12px;font-weight:800;cursor:pointer;}
+  .rmore:hover{color:var(--ink);border-color:var(--sky);}
+
+  /* --- визуализация --- */
+  .viztabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px;}
+  .viztabs button{background:var(--card);border:1px solid var(--border);color:var(--muted);font-weight:800;font-size:13.5px;
+    padding:9px 16px;border-radius:999px;cursor:pointer;transition:all .2s;}
+  .viztabs button.on{background:linear-gradient(135deg,var(--sky),var(--grape));color:#fff;border-color:transparent;
+    box-shadow:0 8px 20px rgba(63,216,255,.25);}
+  .vizcard{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:20px;min-height:330px;position:relative;overflow:hidden;}
+  .vizhint{color:var(--muted);font-size:12.5px;margin:0 0 14px;}
+  .vrow{display:flex;align-items:center;gap:12px;margin-bottom:11px;cursor:pointer;}
+  .vrow:hover .vtrack{background:rgba(255,255,255,.14);}
+  .vlab{width:112px;flex:none;font-weight:800;font-size:13.5px;}
+  .vlab small{display:block;font-size:11px;color:var(--muted);font-weight:700;}
+  .vtrack{flex:1;height:26px;border-radius:9px;background:rgba(0,0,0,.25);overflow:hidden;position:relative;transition:background .2s;}
+  .vfill{height:100%;width:0;border-radius:9px;transition:width 1s cubic-bezier(.22,1,.36,1);display:flex;align-items:center;
+    justify-content:flex-end;padding-right:9px;font-size:12px;font-weight:800;color:#171233;}
+  .vnum{width:44px;flex:none;text-align:right;font-weight:800;font-size:14px;}
+  .vdonut{display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:center;}
+  .vdonut svg{flex:none;}
+  .vlegend{display:flex;flex-direction:column;gap:7px;min-width:230px;}
+  .vleg{display:flex;align-items:center;gap:9px;background:rgba(0,0,0,.2);border:1px solid var(--border);border-radius:12px;
+    padding:7px 11px;cursor:pointer;font-size:13px;font-weight:700;transition:transform .2s,background .2s;}
+  .vleg:hover{transform:translateX(4px);background:rgba(255,255,255,.1);}
+  .vleg i{width:11px;height:11px;border-radius:4px;flex:none;}
+  .vleg b{margin-left:auto;font-size:13px;}
+  .vyears{display:flex;align-items:flex-end;gap:5px;height:210px;padding:10px 0 0;overflow-x:auto;}
+  .vy{flex:1;min-width:16px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;cursor:pointer;height:100%;}
+  .vy .col{width:100%;border-radius:7px 7px 3px 3px;height:0;transition:height .9s cubic-bezier(.22,1,.36,1),filter .2s;
+    background:linear-gradient(180deg,var(--sky),var(--grape));}
+  .vy:hover .col{filter:brightness(1.25);}
+  .vy small{font-size:9.5px;color:var(--muted);font-weight:800;writing-mode:vertical-rl;transform:rotate(180deg);}
+  .vtip{position:absolute;pointer-events:none;background:#0d0a22;border:1px solid var(--border);border-radius:11px;padding:7px 11px;
+    font-size:12px;font-weight:700;opacity:0;transition:opacity .18s;box-shadow:var(--shadow);z-index:9;white-space:nowrap;}
+  .vtip.on{opacity:1;}
+  .vstack{display:flex;height:52px;border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-bottom:16px;}
+  .vseg{height:100%;width:0;transition:width 1s cubic-bezier(.22,1,.36,1);display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:13px;color:#171233;cursor:pointer;}
+  .vseg:hover{filter:brightness(1.15);}
+  .vgrid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:11px;}
+  .vmini{background:rgba(0,0,0,.22);border:1px solid var(--border);border-radius:16px;padding:13px;cursor:pointer;transition:transform .2s;}
+  .vmini:hover{transform:translateY(-4px);}
+  .vmini b{display:block;font-family:'Baloo 2';font-size:23px;}
+  .vmini span{font-size:12px;color:var(--muted);font-weight:700;}
+
+  /* --- мои мультики --- */
+  .mytop{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;background:var(--card);border:1px solid var(--border);
+    border-radius:24px;padding:20px;margin-bottom:18px;}
+  .ring{position:relative;width:118px;height:118px;flex:none;}
+  .ring svg{transform:rotate(-90deg);}
+  .ring circle{fill:none;stroke-width:11;stroke-linecap:round;}
+  .ring .bgc{stroke:rgba(255,255,255,.1);}
+  .ring .fgc{stroke:url(#rg);transition:stroke-dashoffset 1.1s cubic-bezier(.22,1,.36,1);}
+  .ring .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .ring .val b{font-family:'Baloo 2';font-size:25px;line-height:1;}
+  .ring .val span{font-size:10.5px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.05em;}
+  .mystats{display:flex;gap:11px;flex-wrap:wrap;}
+  .mystat{background:var(--card2);border:1px solid var(--border);border-radius:16px;padding:11px 15px;min-width:104px;}
+  .mystat b{display:block;font-family:'Baloo 2';font-size:22px;}
+  .mystat span{font-size:11.5px;color:var(--muted);font-weight:700;}
+  .mytabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;}
+  .mytabs button{background:var(--card);border:1px solid var(--border);color:var(--muted);font-weight:800;font-size:13.5px;
+    padding:9px 15px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:7px;}
+  .mytabs button.on{background:var(--card2);color:#fff;border-color:rgba(255,255,255,.25);}
+  .mytabs button i{background:rgba(255,255,255,.14);border-radius:999px;padding:1px 7px;font-style:normal;font-size:11.5px;}
+  .stbtns{display:flex;gap:5px;padding:0 12px 12px;}
+  .stbtns button{flex:1;background:rgba(0,0,0,.24);border:1px solid var(--border);color:var(--muted);border-radius:10px;padding:6px 4px;
+    font-size:11px;font-weight:800;cursor:pointer;transition:all .18s;}
+  .stbtns button:hover{color:var(--ink);}
+  .stbtns button.on{color:#171233;border-color:transparent;}
+  .stbtns button.on.want{background:var(--sun);} .stbtns button.on.watching{background:var(--sky);} .stbtns button.on.done{background:var(--mint);}
+  .favb{position:absolute;top:44px;right:8px;z-index:6;width:32px;height:32px;border-radius:11px;border:1px solid rgba(255,255,255,.35);
+    background:rgba(12,8,32,.55);backdrop-filter:blur(4px);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;
+    justify-content:center;transition:transform .2s,background .2s;}
+  .favb:hover{transform:scale(1.14);background:var(--coral);}
+  .favb.on{background:var(--coral);border-color:transparent;}
+  .card{position:relative;}
+  .card.instatus::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;z-index:7;}
+  .card.s-want::after{background:var(--sun);} .card.s-watching::after{background:var(--sky);} .card.s-done::after{background:var(--mint);}
+  .emptybox{background:var(--card);border:1px dashed var(--border);border-radius:24px;padding:44px 24px;text-align:center;}
+  .emptybox h3{font-size:20px;margin:12px 0 6px;}
+  .emptybox p{color:var(--muted);margin:0 auto 18px;max-width:460px;line-height:1.6;}
+  .ebtn{background:linear-gradient(135deg,var(--coral),var(--grape));color:#fff;border:none;font-weight:800;font-size:14px;
+    padding:12px 22px;border-radius:999px;cursor:pointer;box-shadow:0 8px 22px rgba(255,92,138,.35);}
+  .mmy{display:flex;gap:7px;margin:4px 0 14px;flex-wrap:wrap;}
+  .mmy button{background:var(--card2);border:1px solid var(--border);color:var(--muted);border-radius:999px;padding:8px 14px;
+    font-size:12.5px;font-weight:800;cursor:pointer;}
+  .mmy button.on{color:#171233;border-color:transparent;}
+  .mmy button.on.want{background:var(--sun);} .mmy button.on.watching{background:var(--sky);} .mmy button.on.done{background:var(--mint);}
+
+  /* --- ассистент --- */
+  .asst-fab{position:fixed;right:22px;bottom:22px;z-index:150;width:70px;height:70px;border-radius:26px;border:none;cursor:pointer;
+    background:linear-gradient(135deg,#ffd166,#ff8fb1);box-shadow:0 14px 34px rgba(8,4,26,.55);display:flex;align-items:center;
+    justify-content:center;animation:bob 3.4s ease-in-out infinite;transition:transform .25s;}
+  .asst-fab:hover{transform:scale(1.08) rotate(-4deg);}
+  .asst-fab .ping{position:absolute;inset:0;border-radius:26px;border:2px solid rgba(255,209,102,.6);animation:ping 2.6s ease-out infinite;}
+  .asst-dot{position:absolute;top:-3px;right:-3px;width:19px;height:19px;border-radius:50%;background:var(--coral);color:#fff;font-size:11px;
+    font-weight:800;display:none;align-items:center;justify-content:center;border:2px solid var(--bg);}
+  .asst-dot.on{display:flex;animation:pop .35s ease;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes ping{0%{transform:scale(1);opacity:.75}70%{transform:scale(1.45);opacity:0}100%{opacity:0}}
+  @keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.25)}100%{transform:scale(1)}}
+  .eye{animation:blink 4.2s infinite;transform-origin:center;}
+  @keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+  .paw{transform-origin:70% 70%;animation:wave 2.4s ease-in-out infinite;}
+  @keyframes wave{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-22deg)}85%{transform:rotate(14deg)}}
+  .asst-bubble{position:fixed;right:104px;bottom:38px;z-index:149;max-width:266px;background:#fff;color:#241b48;border-radius:20px 20px 4px 20px;
+    padding:14px 16px;font-size:13.5px;font-weight:700;line-height:1.5;box-shadow:0 16px 40px rgba(8,4,26,.5);opacity:0;
+    transform:translateY(14px) scale(.9);pointer-events:none;transition:all .4s cubic-bezier(.22,1,.36,1);transform-origin:bottom right;}
+  .asst-bubble.on{opacity:1;transform:none;pointer-events:auto;}
+  .asst-bubble b{color:var(--coral);}
+  .asst-bubble .bx{position:absolute;top:6px;right:9px;background:none;border:none;color:#a99fc4;font-size:16px;cursor:pointer;}
+  .asst-panel{position:fixed;right:22px;bottom:104px;z-index:160;width:min(374px,calc(100vw - 34px));max-height:min(586px,calc(100vh - 140px));
+    background:var(--card);border:1px solid var(--border);border-radius:26px;box-shadow:0 24px 60px rgba(8,4,26,.65);display:flex;
+    flex-direction:column;overflow:hidden;opacity:0;transform:translateY(22px) scale(.95);pointer-events:none;
+    transition:all .34s cubic-bezier(.22,1,.36,1);transform-origin:bottom right;}
+  .asst-panel.on{opacity:1;transform:none;pointer-events:auto;}
+  .asst-head{display:flex;align-items:center;gap:11px;padding:14px 16px;background:linear-gradient(135deg,rgba(255,209,102,.22),rgba(255,92,138,.2));
+    border-bottom:1px solid var(--border);}
+  .asst-head .ava{width:42px;height:42px;border-radius:15px;background:linear-gradient(135deg,#ffd166,#ff8fb1);display:flex;align-items:center;justify-content:center;flex:none;}
+  .asst-head b{font-family:'Baloo 2';font-size:16px;display:block;}
+  .asst-head span{font-size:11.5px;color:var(--mint);font-weight:800;display:flex;align-items:center;gap:5px;}
+  .asst-head span i{width:7px;height:7px;border-radius:50%;background:var(--mint);display:block;}
+  .asst-head .cx{margin-left:auto;background:var(--card2);border:1px solid var(--border);color:var(--ink);width:32px;height:32px;
+    border-radius:11px;cursor:pointer;font-size:16px;}
+  .asst-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:11px;}
+  .amsg{max-width:88%;font-size:13.5px;line-height:1.55;padding:11px 14px;border-radius:18px;animation:slidein .35s cubic-bezier(.22,1,.36,1);}
+  .amsg.bot{background:var(--card2);border:1px solid var(--border);border-bottom-left-radius:5px;align-self:flex-start;}
+  .amsg.me{background:linear-gradient(135deg,var(--coral),var(--grape));color:#fff;font-weight:700;border-bottom-right-radius:5px;align-self:flex-end;}
+  .amsg b{color:var(--sun);} .amsg.me b{color:#fff;}
+  @keyframes slidein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .atyping{display:flex;gap:4px;align-self:flex-start;background:var(--card2);border:1px solid var(--border);padding:13px 15px;border-radius:18px;border-bottom-left-radius:5px;}
+  .atyping i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:tp 1.2s infinite;}
+  .atyping i:nth-child(2){animation-delay:.18s} .atyping i:nth-child(3){animation-delay:.36s}
+  @keyframes tp{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-5px)}}
+  .arec{background:var(--card2);border:1px solid var(--border);border-radius:16px;padding:10px;display:flex;gap:10px;align-items:center;
+    animation:slidein .4s cubic-bezier(.22,1,.36,1);}
+  .arec .amini{width:46px;height:58px;border-radius:11px;flex:none;display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo 2';font-weight:800;color:#171233;font-size:15px;}
+  .arec .ai{flex:1;min-width:0;}
+  .arec .ai h5{margin:0 0 2px;font-size:13.5px;font-family:'Baloo 2';overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .arec .ai p{margin:0;font-size:11.5px;color:var(--muted);}
+  .arec .ab{display:flex;flex-direction:column;gap:4px;}
+  .arec .ab button{background:rgba(0,0,0,.25);border:1px solid var(--border);color:var(--ink);border-radius:9px;padding:5px 9px;font-size:11px;font-weight:800;cursor:pointer;}
+  .arec .ab button:hover{background:var(--sky);color:#171233;border-color:transparent;}
+  .asst-qr{padding:12px 16px 16px;border-top:1px solid var(--border);display:flex;gap:7px;flex-wrap:wrap;background:rgba(0,0,0,.18);}
+  .asst-qr button{background:var(--card2);border:1px solid var(--border);color:var(--ink);border-radius:999px;padding:9px 14px;
+    font-size:12.5px;font-weight:800;cursor:pointer;transition:all .2s;animation:slidein .3s ease;}
+  .asst-qr button:hover{background:linear-gradient(135deg,var(--sky),var(--grape));border-color:transparent;color:#fff;transform:translateY(-2px);}
+  @media (max-width:980px){ .howto{grid-template-columns:repeat(2,1fr);} .rmap{grid-template-columns:1fr;} .rmap::before{display:none;}
+    .mytop{grid-template-columns:1fr;justify-items:center;text-align:center;} .mystats{justify-content:center;} }
+  @media (max-width:560px){ .howto{grid-template-columns:1fr;} .vlab{width:82px;} .asst-bubble{right:18px;bottom:104px;max-width:calc(100vw - 40px);} }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="tp">
+  <div class="brand">
+    <div class="logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2b2438" stroke-width="2"/><path d="M9 10h.01M15 10h.01M8.5 14.5c2 1.8 5 1.8 7 0" stroke="#2b2438" stroke-width="2" stroke-linecap="round"/></svg></div>
+    <div><div class="brand-name">Alterna Çizgi</div><div class="brand-sub">Türkçe çizgi film</div></div>
+  </div>
+  <div class="navl" id="nav"></div>
+  <button class="rnd" onclick="randomItem()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="2"/><circle cx="9" cy="9" r="1.5" fill="#fff"/><circle cx="15" cy="15" r="1.5" fill="#fff"/></svg>
+    Случайный мультик
+  </button>
+</div></div>
+
+<div class="wrap">
+  <section class="view" id="view-home">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Мультфильмы школы Alterna</span>
+        <h1 class="headline">Турецкий, который <span class="mark">понятен</span> с первого раза</h1>
+        <p class="lede">Мультфильмы устроены идеально для начинающих: медленная речь, короткие фразы, повторы и картинка, которая объясняет половину смысла. Отсюда проще всего начинать слушать турецкий.</p>
+        <div class="stats">
+          <div class="st"><b id="stTotal">0</b><span>мультфильмов</span></div>
+          <div class="st"><b id="stA1">0</b><span>подходят с нуля</span></div>
+          <div class="st"><b id="stYears">-</b><span>годы выпуска</span></div>
+        </div>
+      </div>
+      <div class="blobs">
+        <div class="blob b1"><b>Niloya</b><small>A1</small></div>
+        <div class="blob b2"><b>Kral Şakir</b><small>A1 · A2</small></div>
+        <div class="blob b3"><b>Rafadan Tayfa</b><small>A2 · B1</small></div>
+        <div class="blob b4"><b>Pırıl</b><small>A1 · A2</small></div>
+      </div>
+    </div>
+    <h2 style="font-size:24px;margin:34px 0 4px;">Как смотреть, чтобы это работало</h2>
+    <p class="lede" style="margin-bottom:0;">Мультик фоном не учит языку. Работает другой цикл, четыре шага, по 15 минут в день.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Начните с A1</h3><p>Даже если вы уже что-то знаете. Понимать почти всё приятнее, чем мучиться, и лексика закрепляется прочнее.</p></div>
+      <div class="step"><div class="n">2</div><h3>Турецкие субтитры</h3><p>Только турецкие. Русские выключают аудирование: глаз читает быстрее, чем ухо слышит.</p></div>
+      <div class="step"><div class="n">3</div><h3>Одна серия дважды</h3><p>Серии короткие, 11 до 15 минут. Второй просмотр без субтитров даёт больше, чем новая серия.</p></div>
+      <div class="step"><div class="n">4</div><h3>Заберите 5 фраз</h3><p>Не отдельные слова, а целые реплики героев. В мультиках они короткие и повторяются постоянно.</p></div>
+    </div>
+
+    <div class="hblock">
+      <div class="hhead"><h2>Инструкция: как пользоваться каталогом</h2><span class="tag">5 шагов</span></div>
+      <p class="hsub">Каталог это не список ссылок, а тренажёр аудирования. Ниже короткий сценарий, по которому он работает лучше всего.</p>
+      <div class="howto" id="howto"></div>
+    </div>
+
+    <div class="hblock">
+      <div class="hhead"><h2>Дорожная карта мультиков</h2><span class="tag">A1 → C1</span></div>
+      <p class="hsub">Пять станций от первых слов до свободного просмотра. Отмечайте просмотренное, и маршрут закрашивается: видно, где вы сейчас и что брать дальше.</p>
+      <div class="rmapwrap">
+        <div class="rmaptop">
+          <b>Ваш прогресс по маршруту</b>
+          <div class="rbar"><i id="rbarFill"></i></div>
+          <span class="rbadge" id="rbarTxt">0 из 0 отмечено</span>
+        </div>
+        <div class="rmap" id="rmap"></div>
+      </div>
+    </div>
+
+    <div class="hblock">
+      <div class="hhead"><h2>Каталог в цифрах</h2><span class="tag">интерактивно</span></div>
+      <p class="hsub">Наведите на график, чтобы увидеть детали, и кликните по любому элементу: каталог сразу откроется с нужным фильтром.</p>
+      <div class="viztabs" id="viztabs"></div>
+      <div class="vizcard" id="vizcard"></div>
+      <div class="vtip" id="vtip"></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-catalog">
+    <div class="lvlbar" id="lvlbar"></div>
+    <div class="keybar" id="keybar">
+      <div class="kb-left">
+        <span class="kb-dot" id="kbDot"></span>
+        <span class="kb-txt" id="kbTxt">Постеры ищутся в Википедии. Чтобы картинка была у каждого мультика, добавьте бесплатный ключ TMDb, это одна минута и один раз.</span>
+      </div>
+      <input id="kbInput" type="text" placeholder="Вставьте TMDb API key" autocomplete="off">
+      <button class="kb-btn" onclick="applyKey()">Сохранить</button>
+      <a class="kb-help" href="https://www.themoviedb.org/settings/api" target="_blank" rel="noopener">Получить ключ</a>
+      <button class="kb-clear" onclick="clearKey()" title="Удалить ключ">&times;</button>
+    </div>
+    <div class="toolbar">
+      <div class="trow">
+        <div class="sbox">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2.4"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <input id="search" type="text" placeholder="Название, тема, герой...">
+        </div>
+        <div class="sel"><label>Сортировка</label>
+          <select id="sortSel" onchange="setSort(this.value)">
+            <option value="level">По уровню, от простого</option>
+            <option value="name-asc">По названию (А-Я)</option>
+            <option value="name-desc">По названию (Я-А)</option>
+            <option value="year-desc">Сначала новые</option>
+            <option value="year-asc">Сначала старые</option>
+            <option value="genre">По жанру</option>
+          </select>
+        </div>
+        <div class="sel"><label>Группировка</label>
+          <select id="groupSel" onchange="setGroup(this.value)">
+            <option value="level">По уровню</option>
+            <option value="none">Без группировки</option>
+            <option value="fmt">По формату</option>
+            <option value="genre">По жанру</option>
+          </select>
+        </div>
+        <div class="vt"><button id="bGrid" class="active" onclick="setMode('grid')">Плитка</button><button id="bList" onclick="setMode('list')">Список</button></div>
+      </div>
+      <div class="flab">Формат</div><div class="frow" id="fmtF"></div>
+      <div class="flab">Жанр</div><div class="frow" id="genreF"></div>
+      <div class="tbot">
+        <div class="found">Найдено <b id="foundNum">0</b> из <b id="totalNum">0</b><span class="fnote" id="fnote"></span></div>
+        <button class="reset" onclick="resetFilters()">Сбросить фильтры</button>
+      </div>
+    </div>
+    <p class="hint">Совет: если ни один фильтр не выбран, показывается весь каталог. Клик по мультфильму открывает карточку с постером и ссылками.</p>
+    <div id="body"></div>
+  </section>
+
+  <section class="view" id="view-where">
+    <h2 style="font-size:26px;margin-bottom:8px;">Где смотреть</h2>
+    <p class="lede">Большая часть турецкой анимации выложена официально и бесплатно, это редкая удача для изучающих язык.</p>
+    <div class="steps" style="grid-template-columns:repeat(3,1fr);">
+      <div class="step"><div class="n" style="background:var(--mint)">1</div><h3>TRT Çocuk</h3><p>Государственный детский канал выкладывает почти все свои сериалы целиком на сайт и в YouTube. Бесплатно и без ограничений по странам.</p></div>
+      <div class="step"><div class="n" style="background:var(--sky)">2</div><h3>YouTube</h3><p>У каждого крупного турецкого мультсериала есть официальный канал с полными сериями. Кнопка "Смотреть" ведёт именно туда.</p></div>
+      <div class="step"><div class="n" style="background:#ffb3d1">3</div><h3>Дубляж</h3><p>Знакомые мировые мультфильмы в турецкой озвучке. Знакомый сюжет сильно облегчает понимание на слух.</p></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-faq">
+    <h2 style="font-size:26px;margin-bottom:14px;">Частые вопросы</h2>
+    <div id="faqList"></div>
+  </section>
+
+  <section class="view" id="view-my">
+    <h2 style="font-size:26px;margin-bottom:8px;">Мои мультики</h2>
+    <p class="lede">Личная полка. Добавляйте мультфильмы из каталога кнопкой с сердцем и меняйте статус: хочу посмотреть, смотрю, посмотрел. Всё хранится в вашем браузере, регистрация не нужна.</p>
+    <div class="mytop">
+      <div class="ring">
+        <svg width="118" height="118">
+          <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#3fd8ff"/><stop offset="100%" stop-color="#5bf2c0"/></linearGradient></defs>
+          <circle class="bgc" cx="59" cy="59" r="50"></circle>
+          <circle class="fgc" id="ringFg" cx="59" cy="59" r="50" stroke-dasharray="314" stroke-dashoffset="314"></circle>
+        </svg>
+        <div class="val"><b id="ringPct">0%</b><span>просмотрено</span></div>
+      </div>
+      <div>
+        <div class="mystats" id="myStats"></div>
+        <p class="hint" style="margin:14px 0 0;" id="myHint"></p>
+      </div>
+    </div>
+    <div class="mytabs" id="myTabs"></div>
+    <div id="myBody"></div>
+  </section>
+
+  <footer class="foot">
+    Каталог собран командой Alterna. Уровень ставится по скорости речи, длине фраз и количеству повторов, а не по возрасту зрителя. Ссылки построены как поисковые запросы, поэтому остаются рабочими независимо от страны и времени.
+  </footer>
+</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="mbox">
+    <button class="mx" onclick="closeModal()">&times;</button>
+    <div class="mgrid">
+      <div class="mposter" id="mPoster"></div>
+      <div class="minfo">
+        <div class="mbg" id="mBadges"></div>
+        <h2 id="mTitle"></h2>
+        <div class="mmeta" id="mMeta"></div>
+        <p class="mdesc" id="mDesc"></p>
+        <div class="mblk"><div class="mlab">Где посмотреть</div><div class="mlinks" id="mWatch"></div></div>
+        <div class="mblk"><div class="mlab">Информация</div><div class="mlinks" id="mInfo"></div></div>
+        <div class="mtip" id="mTip"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="asst-bubble" id="asstBubble">
+  <button class="bx" onclick="hideBubble(event)">&times;</button>
+  <span id="asstBubbleTxt"></span>
+</div>
+
+<button class="asst-fab" id="asstFab" onclick="toggleAsst()" title="Ассистент по мультикам">
+  <span class="ping"></span>
+  <span class="asst-dot" id="asstDot">1</span>
+  <svg width="46" height="46" viewBox="0 0 48 48" fill="none">
+    <path d="M11 16 L10 6 L19 11 Z" fill="#fff2c9" stroke="#3b2d5c" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M37 16 L38 6 L29 11 Z" fill="#fff2c9" stroke="#3b2d5c" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="24" cy="26" r="15" fill="#fff8ea" stroke="#3b2d5c" stroke-width="2"/>
+    <g class="eye"><circle cx="18.5" cy="24" r="2.5" fill="#3b2d5c"/><circle cx="29.5" cy="24" r="2.5" fill="#3b2d5c"/></g>
+    <circle cx="19.4" cy="23.2" r=".9" fill="#fff"/><circle cx="30.4" cy="23.2" r=".9" fill="#fff"/>
+    <path d="M24 29.5 l-2 1.6 2 1.4 2-1.4z" fill="#ff8fb1"/>
+    <path d="M20 33.5c1.6 1.6 6.4 1.6 8 0" stroke="#3b2d5c" stroke-width="2" stroke-linecap="round"/>
+    <path d="M6 25h6M6 29h6M36 25h6M36 29h6" stroke="#3b2d5c" stroke-width="1.6" stroke-linecap="round" opacity=".55"/>
+    <g class="paw"><circle cx="39" cy="38" r="5.5" fill="#fff8ea" stroke="#3b2d5c" stroke-width="2"/>
+      <circle cx="37" cy="36" r="1" fill="#ff8fb1"/><circle cx="40.5" cy="36" r="1" fill="#ff8fb1"/></g>
+  </svg>
+</button>
+
+<div class="asst-panel" id="asstPanel">
+  <div class="asst-head">
+    <div class="ava">
+      <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+        <path d="M11 16 L10 6 L19 11 Z" fill="#fff2c9" stroke="#3b2d5c" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M37 16 L38 6 L29 11 Z" fill="#fff2c9" stroke="#3b2d5c" stroke-width="2.4" stroke-linejoin="round"/>
+        <circle cx="24" cy="26" r="15" fill="#fff8ea" stroke="#3b2d5c" stroke-width="2.4"/>
+        <g class="eye"><circle cx="18.5" cy="24" r="2.6" fill="#3b2d5c"/><circle cx="29.5" cy="24" r="2.6" fill="#3b2d5c"/></g>
+        <path d="M20 33c1.6 1.6 6.4 1.6 8 0" stroke="#3b2d5c" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div><b>Кеди, ассистент по мультикам</b><span><i></i>на связи, знает весь каталог</span></div>
+    <button class="cx" onclick="toggleAsst()">&times;</button>
+  </div>
+  <div class="asst-body" id="asstBody"></div>
+  <div class="asst-qr" id="asstQr"></div>
+</div>
+
+<script>
+// ============================================================
+// Вставьте сюда бесплатный ключ TMDb, если хотите, чтобы постеры
+// работали у всех посетителей без дополнительных действий.
+// Получить: themoviedb.org, Settings, API, ключ типа Developer.
+const TMDB_KEY = "";
+// ============================================================
+let RUNTIME_KEY = "";
+try{ RUNTIME_KEY = localStorage.getItem('alterna_tmdb') || ""; }catch(e){}
+function activeKey(){ return RUNTIME_KEY || TMDB_KEY; }
+function applyKey(){
+  const v = document.getElementById('kbInput').value.trim();
+  if(!v) return;
+  RUNTIME_KEY = v;
+  try{ localStorage.setItem('alterna_tmdb', v); }catch(e){}
+  posterCache.clear();
+  markKey();
+  render();
+}
+function clearKey(){
+  RUNTIME_KEY = "";
+  try{ localStorage.removeItem('alterna_tmdb'); }catch(e){}
+  document.getElementById('kbInput').value = "";
+  posterCache.clear();
+  markKey();
+  render();
+}
+function markKey(){
+  const bar = document.getElementById('keybar');
+  if(!bar) return;
+  const on = !!activeKey();
+  bar.classList.toggle('on', on);
+  document.getElementById('kbTxt').textContent = on
+    ? 'Ключ TMDb подключён. Постеры подтягиваются для всего каталога и запоминаются в этом браузере.'
+    : 'Постеры ищутся в Википедии. Чтобы картинка была у каждого мультика, добавьте бесплатный ключ TMDb, это одна минута и один раз.';
+}
+const posterCache = new Map();
+async function wikiSearch(lang, query){
+  const url = `https://${lang}.wikipedia.org/w/api.php?action=query&format=json&origin=*`
+    + `&generator=search&gsrsearch=${encodeURIComponent(query)}&gsrlimit=1`
+    + `&prop=pageimages&piprop=thumbnail&pithumbsize=500`;
+  const r = await fetch(url); if(!r.ok) return null;
+  const d = await r.json(); const pages = d && d.query && d.query.pages; if(!pages) return null;
+  const first = Object.values(pages)[0];
+  return (first && first.thumbnail && first.thumbnail.source) ? first.thumbnail.source : null;
+}
+async function fromWiki(f, lang){
+  const kind = (f.fmt==='film') ? 'film' : 'çizgi film';
+  const tries = [ `${f.name} ${f.year} ${kind}`, `${f.name} ${kind}`, f.name ];
+  for(const q of tries){
+    const hit = await wikiSearch(lang, q);
+    if(hit) return hit;
+  }
+  return null;
+}
+async function fromTmdb(f){
+  const K = activeKey(); if(!K) return null;
+  const t = (f.fmt==='film') ? 'movie' : 'tv';
+  const url = `https://api.themoviedb.org/3/search/${t}?api_key=${K}&language=tr-TR&query=`+encodeURIComponent(f.name);
+  const r = await fetch(url); if(!r.ok) return null;
+  const d = await r.json(); const hit = (d.results||[])[0];
+  return (hit && hit.poster_path) ? 'https://image.tmdb.org/t/p/w342'+hit.poster_path : null;
+}
+async function resolvePoster(f){
+  const key = f.name+'|'+f.year;
+  if(posterCache.has(key)) return posterCache.get(key);
+  let path=null;
+  for(const step of [()=>fromTmdb(f), ()=>fromWiki(f,'tr'), ()=>fromWiki(f,'ru'), ()=>fromWiki(f,'en')]){
+    try{ path = await step(); }catch(e){ path=null; }
+    if(path) break;
+  }
+  posterCache.set(key, path); return path;
+}
+function applyPoster(el, path){
+  if(!path || !el || el.querySelector('.p-photo')) return;
+  const img=document.createElement('img'); img.className='p-photo'; img.loading='lazy'; img.alt=''; img.src=path;
+  img.onerror=()=>img.remove(); el.appendChild(img);
+}
+function hydrate(){
+  const nodes=[...document.querySelectorAll('.poster[data-fid]')]; let i=0;
+  const step=()=>{ const b=nodes.slice(i,i+12); if(!b.length)return;
+    b.forEach(el=>{const f=ITEMS[+el.dataset.fid]; if(f) resolvePoster(f).then(p=>applyPoster(el,p));});
+    i+=12; setTimeout(step,350); };
+  step();
+}
+
+const FMT={serial:"Сериал",film:"Полный метр",short:"Короткометражка",dub:"Дубляж"};
+const FMT_ORDER={serial:0,film:1,short:2,dub:3};
+const G={preschool:"Для самых маленьких",adventure:"Приключения",edu:"Обучающее",comedy:"Комедия",folk:"Сказки и фольклор",family:"Семейное",science:"Наука"};
+const LEVELS={A1:{sub:"Первые слова"},A2:{sub:"Простые фразы"},B1:{sub:"Понимаю разговор"},B2:{sub:"Смотрю без пауз"},C1:{sub:"Почти как носитель"}};
+
+// [название, год, формат, жанр, уровни, описание]
+const RAW=[
+["Niloya",2012,"serial","preschool",["A1"],"Девочка Нилоя в деревне у бабушки. Самая медленная речь во всём каталоге, короткие серии."],
+["Pepee",2008,"serial","preschool",["A1"],"Пятилетний Пепе учит цвета, числа и формы. Слова повторяются десятки раз за серию."],
+["Kukuli",2016,"serial","preschool",["A1"],"Песенки и короткие истории для дошкольников, максимум повторов."],
+["Akıllı Tavşan Momo",2015,"serial","preschool",["A1"],"Умный кролик Момо и его друзья, очень чёткая артикуляция."],
+["Elif ve Arkadaşları",2016,"serial","preschool",["A1"],"Девочка Элиф и её друзья, простые бытовые ситуации."],
+["Maysa ve Bulut",2014,"serial","preschool",["A1"],"Девочка и облако в анатолийской деревне, спокойный темп."],
+["Canım Kardeşim",2014,"serial","preschool",["A1"],"О старшем и младшем ребёнке в семье, минимальный словарь."],
+["Aslan",2018,"serial","preschool",["A1"],"Малыш-лев и его открытия, очень простые фразы."],
+["Hapşuu",2019,"serial","preschool",["A1"],"Забавные короткие истории для дошкольников."],
+["Emiray",2020,"serial","preschool",["A1"],"Мальчик Эмирай и его повседневные приключения."],
+["Kardeşim Ozi",2019,"serial","preschool",["A1"],"Инопланетянин Ози живёт в турецкой семье и всё переспрашивает."],
+["Tırtıl Tayfa",2018,"serial","preschool",["A1"],"Гусеницы-друзья, короткие серии с ясной дикцией."],
+["Aslan ile Kuş",2018,"short","preschool",["A1"],"Короткометражка о дружбе льва и птицы, почти без слов."],
+["İbi",2016,"serial","adventure",["A1","A2"],"Любознательный мальчик исследует мир вокруг себя."],
+["Kral Şakir",2016,"serial","comedy",["A1","A2"],"Семья львов в анимационном Стамбуле. Самый популярный турецкий мультсериал."],
+["Rüzgar Gülü",2017,"serial","adventure",["A1","A2"],"Приключения в деревне на берегу, тёплая и понятная речь."],
+["Su Elçileri",2018,"serial","science",["A1","A2"],"Пингвин Пенгу и друзья спасают тающие ледники, экологическая тема."],
+["Kaptan Pengu ve Arkadaşları",2020,"serial","adventure",["A1","A2"],"Продолжение истории про Пенгу, морские приключения."],
+["Pırıl",2019,"serial","edu",["A1","A2"],"Девочка Пырыл объясняет математику и науку через истории."],
+["Kare",2019,"serial","adventure",["A1","A2"],"Четверо друзей и их выдумки, динамичные короткие серии."],
+["Limon ile Zeytin",2016,"serial","comedy",["A1","A2"],"Два друга и бесконечные бытовые недоразумения."],
+["Leliko",2017,"serial","preschool",["A1","A2"],"Анимация для малышей о доброте и дружбе."],
+["Çufçuflar Diyarı",2015,"serial","preschool",["A1","A2"],"Паровозики и дружба, один из самых смотримых сериалов TRT."],
+["Keloğlan",1971,"serial","folk",["A1","A2"],"Классический герой турецких народных сказок, сказочная размеренная речь."],
+["Dolu Dolu Doludizgin",2013,"serial","adventure",["A1","A2"],"Приключенческий сериал TRT Çocuk с внятной речью дикторов."],
+["Doru",2018,"serial","folk",["A2"],"Добрый жеребёнок и его наставник, тюркский фольклорный мир."],
+["Rafadan Tayfa",2014,"serial","comedy",["A2","B1"],"Шестеро детей в стамбульском квартале 80-х. Живая бытовая речь."],
+["Evliya Çelebi ve Ölümsüzlük Suyu",2014,"film","folk",["A2","B1"],"Путешественник Эвлия Челеби просыпается в современном Стамбуле."],
+["Uçan Süpürge",2016,"film","family",["A2","B1"],"Семейная история с волшебством, речь всё ещё медленная."],
+["Ayas",2017,"film","adventure",["A2","B1"],"Мальчик мечтает стать авиаинженером и восстанавливает самолёт деда."],
+["Rafadan Tayfa: Dehliz Macerası",2018,"film","comedy",["A2","B1"],"Первый полный метр про компанию друзей, подземные ходы под кварталом."],
+["Rafadan Tayfa: Göbeklitepe",2019,"film","adventure",["A2","B1"],"Дети на раскопках Гёбеклитепе, история и археология."],
+["Rafadan Tayfa: Hayalet Çiftlik",2020,"film","comedy",["A2","B1"],"Детский детектив на ферме с привидениями."],
+["Rafadan Tayfa: Galaktik Tayfa",2023,"film","adventure",["A2","B1"],"Космическое приключение компании друзей."],
+["Rafadan Tayfa: Gordion",2025,"film","adventure",["A2","B1"],"Легенда о печати Мидаса и загадки Анкары."],
+["Kaptan Pengu ve Arkadaşları: Mandalina'nın Günlüğü",2021,"film","adventure",["A1","A2"],"Первый полный метр про Пенгу, поиски пропавшего друга."],
+["Kaptan Pengu ve Arkadaşları 2",2022,"film","adventure",["A1","A2"],"Новое морское приключение команды Пенгу."],
+["Kaptan Pengu ve Arkadaşları 3",2023,"film","adventure",["A1","A2"],"Третий полный метр серии, экология и дружба."],
+["Kaptan Pengu ve Arkadaşları 4",2024,"film","adventure",["A1","A2"],"Четвёртый фильм, вселенная серии расширяется."],
+["Kaptan Pengu ve Arkadaşları 5",2025,"film","adventure",["A1","A2"],"Пятая часть, вышла в кинотеатрах Турции."],
+["Pırıl: Sayıların Gizemi",2023,"film","edu",["A1","A2"],"Первый полный метр про Пырыл, приключение вокруг чисел."],
+["İbi: Doğu Ekspresi'nin Gizemi",2023,"film","adventure",["A2","B1"],"Иби расследует загадку Восточного экспресса, лидер проката."],
+["Kare: Sinema Filmi",2024,"film","adventure",["A2","B1"],"Полный метр по сериалу Kare, большое приключение четвёрки."],
+["Doru: Sinema Filmi",2022,"film","folk",["A2","B1"],"Жеребёнок Дору и Каратай отправляются искать отца."],
+["Keloğlan Kara Prens'e Karşı",2006,"film","folk",["A2","B1"],"Полнометражный фильм о герое народных сказок."],
+["Pepee: Kırmızı Balon",2015,"film","preschool",["A1","A2"],"Пепе улетает на воздушном шаре дедушки."],
+["Kral Şakir: Korsanlar Diyarı",2021,"film","comedy",["A1","A2"],"Шакир и друзья в стране пиратов."],
+["Kral Şakir: Uzay Macerası",2022,"film","comedy",["A1","A2"],"Космическое приключение семьи Шакира."],
+["Kötü Kedi Şerafettin",2016,"film","comedy",["B1","B2"],"Взрослая анимация о наглом стамбульском коте. Много уличного сленга, не для детей."],
+["Maşa ile Koca Ayı",2009,"dub","preschool",["A1"],"Знакомая Маша и Медведь в турецкой озвучке, минимум слов и максимум действия."],
+["Sünger Bob",1999,"dub","comedy",["A2","B1"],"Губка Боб по-турецки, быстрая речь, но знакомый сюжет помогает."],
+["Pembe Panter",1963,"dub","comedy",["A1"],"Розовая пантера почти без слов, отличный старт для самых первых недель."],
+["Ben 10",2005,"dub","adventure",["A2","B1"],"Знакомый подростковый сериал в турецком дубляже."],
+["Heidi",1974,"dub","family",["A1","A2"],"Хайди в турецкой озвучке, медленная речь и понятная история."],
+["Arı Maya",1975,"dub","preschool",["A1"],"Пчёлка Майя по-турецки, короткие серии и простые слова."],
+["Vak Vak Kardeşler",1987,"dub","comedy",["A2"],"Утиные истории в турецком дубляже."],
+["Kaptan Tsubasa",1983,"dub","adventure",["A2","B1"],"Капитан Цубаса, культовое аниме в турецкой озвучке."],
+["Küçük Prenses Sara",1985,"dub","family",["A2"],"Маленькая принцесса, спокойная речь и знакомый сюжет."],
+["Şirinler",1981,"dub","comedy",["A1","A2"],"Смурфики по-турецки, повторяющаяся лексика."],
+["Tom ve Jerry",1940,"dub","comedy",["A1"],"Том и Джерри почти без диалогов, идеально на самый старт."],
+["Winx Club",2004,"dub","adventure",["A2","B1"],"Знакомый сериал в турецкой озвучке, современная разговорная речь."],
+["Bakugan",2007,"dub","adventure",["B1"],"Аниме в турецком дубляже, быстрый темп речи."],
+["Barbie Filmleri",2001,"dub","family",["A2"],"Серия фильмов про Барби в турецкой озвучке, ясная дикция."],
+["Peppa Pig",2004,"dub","preschool",["A1"],"Свинка Пеппа по-турецки, очень короткие фразы и много повторов."],
+["Ayı Kardeşler",2015,"dub","comedy",["A2","B1"],"Мы обычные медведи в турецком дубляже."],
+["Gumball'ın Muhteşem Dünyası",2011,"dub","comedy",["B1","B2"],"Гамбол по-турецки, очень быстрая речь и игра слов."],
+["Ejderhanı Nasıl Eğitirsin",2010,"dub","adventure",["A2","B1"],"Как приручить дракона в турецкой озвучке."],
+["Buz Devri",2002,"dub","comedy",["A2","B1"],"Ледниковый период по-турецки, знакомый сюжет и живые диалоги."],
+["Zootropolis",2016,"dub","adventure",["B1","B2"],"Зверополис в турецком дубляже, много городской лексики."],
+["Sevimli Dostlar",2011,"serial","preschool",["A1"],"Домашние животные и их будни, очень короткие серии для дошкольников."],
+["Ege ile Gaga",2018,"serial","adventure",["A1","A2"],"Мальчик Эге и его друг-птица исследуют природу."],
+["Cille",2017,"serial","folk",["A1","A2"],"Анатолийские сказки в анимации, размеренная сказочная речь."],
+["Bulmaca Kulesi",2015,"serial","edu",["A1","A2"],"Головоломки и загадки, лексика повторяется от серии к серии."],
+["Gülü Gülü",2019,"serial","preschool",["A1"],"Короткие истории для самых маленьких, простейшие фразы."],
+["Ozi: Sinema Filmi",2022,"film","preschool",["A1","A2"],"Полнометражный фильм про инопланетянина Ози и его турецкую семью."],
+["Niloya: Sinema Filmi",2019,"film","preschool",["A1"],"Полный метр про Нилою, та же медленная речь, что и в сериале."],
+["Akıllı Tavşan Momo: Sinema Filmi",2021,"film","preschool",["A1","A2"],"Полнометражное приключение кролика Момо."],
+["Kral Şakir: Geri Dönüşüm",2023,"film","comedy",["A1","A2"],"Шакир и тема переработки мусора, экология для детей."],
+["Kral Şakir: Buz Devri",2024,"film","comedy",["A1","A2"],"Очередное приключение семьи Шакира, ледниковая тема."],
+["Karlar Ülkesi",2013,"dub","family",["A2","B1"],"Холодное сердце по-турецки, знакомый сюжет и много песен."],
+["Karlar Ülkesi 2",2019,"dub","family",["A2","B1"],"Продолжение Холодного сердца в турецкой озвучке."],
+["Aslan Kral",1994,"dub","family",["A2","B1"],"Король Лев по-турецки, чёткая дикция и знакомая история."],
+["Kayıp Balık Nemo",2003,"dub","adventure",["A2","B1"],"В поисках Немо в турецком дубляже."],
+["Oyuncak Hikayesi",1995,"dub","comedy",["A2","B1"],"История игрушек по-турецки, простые бытовые диалоги."],
+["Arabalar",2006,"dub","adventure",["A2","B1"],"Тачки в турецкой озвучке, много повторяющейся лексики."],
+["Shrek",2001,"dub","comedy",["B1","B2"],"Шрек по-турецки, юмор и игра слов заметно сложнее."],
+["Madagaskar",2005,"dub","comedy",["A2","B1"],"Мадагаскар в турецком дубляже, быстрые шутки."],
+["Kung Fu Panda",2008,"dub","adventure",["A2","B1"],"Кунг-фу Панда по-турецки, динамичные диалоги."],
+["Minyonlar",2015,"dub","comedy",["A1","A2"],"Миньоны почти без осмысленной речи, отличный самый первый дубляж."],
+["Çılgın Hırsız",2010,"dub","comedy",["A2","B1"],"Гадкий я в турецкой озвучке."],
+["Sevimli Canavarlar",2001,"dub","comedy",["A2","B1"],"Корпорация монстров по-турецки."],
+["Ratatuy",2007,"dub","comedy",["B1"],"Рататуй в турецком дубляже, кулинарная лексика."],
+["Wall-E",2008,"dub","science",["A1","A2"],"Валли почти без слов, идеально для самого начала."],
+["Yukarı Bak",2009,"dub","family",["A2","B1"],"Вверх по-турецки, спокойный темп речи."],
+["Ters Yüz",2015,"dub","family",["B1"],"Головоломка в турецкой озвучке, много слов об эмоциях."],
+["Coco",2017,"dub","family",["A2","B1"],"Тайна Коко по-турецки, музыка и семейная тема."],
+["Cesur",2012,"dub","adventure",["A2","B1"],"Храбрая сердцем в турецком дубляже."],
+["Rio",2011,"dub","comedy",["A2","B1"],"Рио по-турецки, яркая картинка помогает пониманию."],
+["Trollar",2016,"dub","comedy",["A2"],"Тролли в турецкой озвучке, много песен."],
+["Bebek Patron",2017,"dub","comedy",["A2","B1"],"Босс-молокосос по-турецки."],
+["Şarkı Söyle",2016,"dub","family",["A2","B1"],"Зверопой в турецком дубляже, музыкальный формат."],
+["Evcil Hayvanların Gizli Yaşamı",2016,"dub","comedy",["A2","B1"],"Тайная жизнь домашних животных по-турецки."],
+["Lego Filmi",2014,"dub","comedy",["B1"],"Лего Фильм в турецкой озвучке, очень быстрая речь."],
+["Angry Birds Filmi",2016,"dub","comedy",["A2"],"Angry Birds по-турецки, простые короткие реплики."],
+["Moana",2016,"dub","adventure",["A2","B1"],"Моана в турецком дубляже, много песен и повторов."],
+["Rapunzel",2010,"dub","family",["A2","B1"],"Рапунцель по-турецки, ясная дикция героев."],
+["Dora",2000,"dub","preschool",["A1"],"Даша-путешественница по-турецки, обучающий формат с прямыми вопросами зрителю."],
+["Kayu",1997,"dub","preschool",["A1"],"Каю в турецкой озвучке, очень медленная речь и бытовые темы."],
+["Bob İnşaat Ustası",1998,"dub","preschool",["A1"],"Боб-строитель по-турецки, повторяющиеся фразы в каждой серии."],
+["Thomas ve Arkadaşları",1984,"dub","preschool",["A1"],"Паровозик Томас в турецкой озвучке, простые предложения."],
+["Pijamaskeliler",2015,"dub","adventure",["A1","A2"],"Герои в масках по-турецки, короткие серии с чёткой структурой."],
+["Mucize Uğur Böceği",2015,"dub","adventure",["A2","B1"],"Леди Баг и Супер-Кот в турецком дубляже."],
+["Pati Devriyesi",2013,"dub","preschool",["A1"],"Щенячий патруль по-турецки, повторяющиеся команды и фразы."],
+["Winnie the Pooh",1988,"dub","preschool",["A1"],"Винни-Пух в турецкой озвучке, медленная и добрая речь."],
+["Scooby Doo",1969,"dub","comedy",["A2","B1"],"Скуби-Ду по-турецки, детективный сюжет и разговорная лексика."],
+["Ninja Kaplumbağalar",1987,"dub","adventure",["A2","B1"],"Черепашки-ниндзя в турецком дубляже."],
+["Pokemon",1997,"dub","adventure",["A2","B1"],"Покемон по-турецки, знакомая структура серий."],
+["Fineas ve Ferb",2007,"dub","comedy",["B1"],"Финес и Ферб в турецкой озвучке, быстрая речь и каламбуры."],
+["Maceralar Diyarı",2010,"dub","comedy",["B1","B2"],"Время приключений по-турецки, абсурдный юмор и сложная речь."],
+["Gravity Falls",2012,"dub","adventure",["B1","B2"],"Гравити Фолз в турецком дубляже, насыщенные диалоги."],
+["Sihirli Anahtar",2011,"serial","edu",["A1","A2"],"Обучающий сериал TRT Çocuk с чёткой дикцией дикторов."],
+["Elif'in Düşleri",2018,"serial","preschool",["A1"],"Сны и фантазии девочки Элиф, спокойный темп."],
+["Bizim Köy",2016,"serial","folk",["A1","A2"],"Деревенские истории для детей, бытовая лексика."],
+["Küçük Kahramanlar",2017,"serial","adventure",["A1","A2"],"Маленькие герои и их приключения, короткие серии."],
+["Hamtaro",2000,"dub","preschool",["A1"],"Хамтаро в турецкой озвучке, короткие серии и простые слова."],
+["Pucca",2000,"dub","comedy",["A1"],"Пукка почти без диалогов, подходит на самый старт."],
+["Heidi: Sinema Filmi",2015,"dub","family",["A2"],"Полнометражная Хайди в турецкой озвучке."],
+["Şirinler: Kayıp Köy",2017,"dub","adventure",["A1","A2"],"Смурфики: Затерянная деревня по-турецки."],
+["Buz Devri 2",2006,"dub","comedy",["A2","B1"],"Ледниковый период 2 в турецком дубляже."],
+["Ejderhanı Nasıl Eğitirsin 2",2014,"dub","adventure",["A2","B1"],"Вторая часть Как приручить дракона по-турецки."],
+["Kung Fu Panda 2",2011,"dub","adventure",["A2","B1"],"Продолжение Кунг-фу Панды в турецкой озвучке."],
+["Madagaskar 2",2008,"dub","comedy",["A2","B1"],"Мадагаскар 2 по-турецки."],
+["Shrek 2",2004,"dub","comedy",["B1","B2"],"Шрек 2 в турецком дубляже, много отсылок и шуток."],
+["Toy Story 3",2010,"dub","family",["A2","B1"],"История игрушек 3 по-турецки."],
+["Zootropolis 2",2025,"dub","adventure",["B1","B2"],"Продолжение Зверополиса в турецкой озвучке."],
+["Ay Işığı Masalları",2020,"serial","folk",["A1","A2"],"Сказки перед сном в анимации, медленная убаюкивающая речь."],
+["Minik Kuşlar",2019,"serial","preschool",["A1"],"Птички и их приключения для дошкольников."],
+["Renkli Dünyam",2018,"serial","edu",["A1"],"Обучающий сериал о цветах и формах, максимум повторов."]
+];
+
+const ITEMS=RAW.map((r,i)=>({id:i,name:r[0],year:r[1],fmt:r[2],genre:r[3],levels:r[4],desc:r[5]}));
+const FAQ=[
+ {q:"Почему мультфильмы, а не сериалы или кино?",a:"В мультфильмах для дошкольников речь медленнее в полтора-два раза, фразы короткие, а слова повторяются десятки раз за серию. Плюс картинка объясняет смысл, поэтому вы понимаете даже незнакомые слова из контекста."},
+ {q:"С чего начать совсем с нуля?",a:"С Niloya, Pepee или Kukuli. Там речь самая медленная. Если и это тяжело, возьмите Tom ve Jerry или Pembe Panter, где диалогов почти нет, и ухо просто привыкает к звучанию языка."},
+ {q:"Что такое формат Дубляж?",a:"Это знакомые мировые мультфильмы в турецкой озвучке. Огромный плюс в том, что сюжет вы уже знаете, поэтому мозг тратит силы только на язык. Минус в том, что это не турецкая культура, поэтому чередуйте с турецкими сериалами."},
+ {q:"Смотреть с субтитрами или без?",a:"С турецкими. Русские субтитры выключают аудирование: глаз читает быстрее, чем ухо слышит. У мультфильмов TRT субтитры обычно есть прямо в плеере."},
+ {q:"Мультики для детей, а я взрослый. Это нормально?",a:"Совершенно. Уровень языка не равен возрасту зрителя. Если хочется взрослого содержания при простом языке, посмотрите Rafadan Tayfa про 80-е или Kötü Kedi Şerafettin, это уже полностью взрослая анимация."},
+ {q:"Где смотреть бесплатно?",a:"TRT Çocuk выкладывает почти все свои сериалы целиком на сайт и в YouTube, без ограничений по странам. Кнопка Смотреть в каждой карточке ведёт на поиск по YouTube."},
+ {q:"Почему у мультфильма несколько уровней?",a:"Многие сериалы начинаются с простых серий и постепенно усложняются, либо подходят и новичку, и человеку на A2. Такие позиции показываются на обоих уровнях."}
+];
+
+let st={view:"home",levels:new Set(),fmts:new Set(),genres:new Set(),q:"",sort:"level",group:"level",mode:"grid"};
+const NAV=[{id:"home",label:"Главная"},{id:"catalog",label:"Каталог"},{id:"where",label:"Где смотреть"},{id:"faq",label:"Вопросы"}];
+const HUES=["135deg,#7ee0f5,#3fa9d6","135deg,#ffd97a,#ffb03a","135deg,#8fe6c4,#3ec9a7","135deg,#ffaec4,#f4709a","135deg,#c6b3ff,#9b6bff","135deg,#ffc39b,#ff8a5c","135deg,#b9e88b,#7cc44a"];
+function hue(n){let h=0;for(let i=0;i<n.length;i++)h+=n.charCodeAt(i)*(i+1);return HUES[h%HUES.length];}
+const GLYPH={
+ preschool:'<circle cx="12" cy="12" r="8" stroke="#2b2438" stroke-width="2"/><path d="M9 10h.01M15 10h.01M9 14.5c1.8 1.4 4.2 1.4 6 0" stroke="#2b2438" stroke-width="2" stroke-linecap="round"/>',
+ adventure:'<path d="M12 3l2 5 5 1-3.5 3.5.9 5.2L12 15l-4.4 2.7.9-5.2L5 9l5-1z" stroke="#2b2438" stroke-width="2" stroke-linejoin="round"/>',
+ edu:'<path d="M3 8l9-4 9 4-9 4z" stroke="#2b2438" stroke-width="2" stroke-linejoin="round"/><path d="M7 10.5V16c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5.5" stroke="#2b2438" stroke-width="2"/>',
+ comedy:'<path d="M4 6h16v10H4z" stroke="#2b2438" stroke-width="2" stroke-linejoin="round"/><path d="M8 20h8M12 16v4" stroke="#2b2438" stroke-width="2" stroke-linecap="round"/>',
+ folk:'<path d="M5 20V8l7-4 7 4v12" stroke="#2b2438" stroke-width="2" stroke-linejoin="round"/><path d="M10 20v-5h4v5" stroke="#2b2438" stroke-width="2"/>',
+ family:'<circle cx="9" cy="9" r="3" stroke="#2b2438" stroke-width="2"/><circle cx="16.5" cy="10.5" r="2.4" stroke="#2b2438" stroke-width="2"/><path d="M4 20v-1.5A3.5 3.5 0 0 1 7.5 15h3a3.5 3.5 0 0 1 3.5 3.5V20" stroke="#2b2438" stroke-width="2" stroke-linecap="round"/>',
+ science:'<path d="M9 3v6L4.5 17A2 2 0 0 0 6.3 20h11.4a2 2 0 0 0 1.8-3L15 9V3" stroke="#2b2438" stroke-width="2" stroke-linejoin="round"/><path d="M9 3h6" stroke="#2b2438" stroke-width="2" stroke-linecap="round"/>'
+};
+function yt(f){return "https://www.youtube.com/results?search_query="+encodeURIComponent(f.name+" türkçe "+(f.fmt==='film'?'film':'bölüm'));}
+function trt(f){return "https://www.trtcocuk.net.tr/arama?q="+encodeURIComponent(f.name);}
+function imdb(f){return "https://www.imdb.com/find/?q="+encodeURIComponent(f.name+" "+f.year);}
+function wiki(f){return "https://tr.wikipedia.org/w/index.php?search="+encodeURIComponent(f.name);}
+function kino(f){return "https://www.kinopoisk.ru/index.php?kp_query="+encodeURIComponent(f.name);}
+
+function setView(v){st.view=v;document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+ document.getElementById('view-'+v).classList.add('active');renderNav();if(v==='catalog')render();window.scrollTo({top:0,behavior:'smooth'});}
+function renderNav(){document.getElementById('nav').innerHTML=NAV.map(n=>`<button class="${st.view===n.id?'active':''}" onclick="setView('${n.id}')">${n.label}</button>`).join('');}
+function toggleLevel(l){st.levels.has(l)?st.levels.delete(l):st.levels.add(l);render();}
+function toggleFmt(v){st.fmts.has(v)?st.fmts.delete(v):st.fmts.add(v);render();}
+function toggleGenre(v){st.genres.has(v)?st.genres.delete(v):st.genres.add(v);render();}
+function setSort(v){st.sort=v;render();} function setGroup(v){st.group=v;render();}
+function setMode(v){st.mode=v;document.getElementById('bGrid').classList.toggle('active',v==='grid');
+ document.getElementById('bList').classList.toggle('active',v==='list');render();}
+function resetFilters(){st.levels=new Set();st.fmts=new Set();st.genres=new Set();st.q="";st.sort="level";st.group="level";st.mode="grid";
+ document.getElementById('search').value="";document.getElementById('sortSel').value="level";document.getElementById('groupSel').value="level";
+ setMode('grid');}
+
+function poster(f,mini){
+ const g=hue(f.name);
+ if(mini) return `<div class="mini" style="background:linear-gradient(${g})"><span>${f.name.slice(0,2).toUpperCase()}</span></div>`;
+ return `<div class="poster" data-fid="${f.id}" style="background:linear-gradient(${g})">
+  <div class="pb"><span class="b-lvl">${f._lvl||f.levels[0]}</span><span class="b-fmt fmt-${f.fmt}">${FMT[f.fmt]}</span></div>
+  <span class="p-glyph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none">${GLYPH[f.genre]||GLYPH.preschool}</svg></span>
+  <span class="p-title">${f.name}</span><span class="p-year">${f.year}</span></div>`;
+}
+function card(f){return `<div class="card" onclick="if(!event.target.closest('a'))openItem(${f.id})">${poster(f)}
+ <div class="cb"><h4>${f.name}</h4><div class="meta">${f.year} · ${G[f.genre]}</div><p>${f.desc}</p>
+ <div class="links"><a href="${yt(f)}" target="_blank" rel="noopener">Смотреть</a><a href="${imdb(f)}" target="_blank" rel="noopener">IMDb</a></div></div></div>`;}
+function row(f){return `<div class="row" onclick="if(!event.target.closest('a'))openItem(${f.id})">${poster(f,true)}
+ <div class="ri"><h4>${f.name}</h4><div class="meta">${f.year} · ${G[f.genre]}</div></div>
+ <div class="rm"><span class="b-lvl">${f._lvl||f.levels[0]}</span><span class="b-fmt fmt-${f.fmt}">${FMT[f.fmt]}</span></div>
+ <div class="rl"><a href="${yt(f)}" target="_blank" rel="noopener">Смотреть</a><a href="${trt(f)}" target="_blank" rel="noopener">TRT</a><a href="${imdb(f)}" target="_blank" rel="noopener">IMDb</a></div></div>`;}
+
+const LORD={A1:0,A2:1,B1:2,B2:3,C1:4};
+function sortItems(a){const r=a.slice();
+ if(st.sort==="level")r.sort((x,y)=>LORD[x.levels[0]]-LORD[y.levels[0]]||x.name.localeCompare(y.name,'ru'));
+ else if(st.sort==="name-asc")r.sort((x,y)=>x.name.localeCompare(y.name,'ru'));
+ else if(st.sort==="name-desc")r.sort((x,y)=>y.name.localeCompare(x.name,'ru'));
+ else if(st.sort==="year-desc")r.sort((x,y)=>y.year-x.year);
+ else if(st.sort==="year-asc")r.sort((x,y)=>x.year-y.year);
+ else if(st.sort==="genre")r.sort((x,y)=>G[x.genre].localeCompare(G[y.genre],'ru')||x.name.localeCompare(y.name,'ru'));
+ return r;}
+
+function render(){
+ const lc={},fc={},gc={};
+ ITEMS.forEach(f=>{f.levels.forEach(l=>lc[l]=(lc[l]||0)+1);fc[f.fmt]=(fc[f.fmt]||0)+1;gc[f.genre]=(gc[f.genre]||0)+1;});
+ document.getElementById('lvlbar').innerHTML='<span class="lb">Уровень</span>'+Object.keys(LEVELS).filter(l=>lc[l]).map(l=>
+  `<button class="lp ${st.levels.has(l)?'on':''}" onclick="toggleLevel('${l}')">${l}<span>${lc[l]}</span></button>`).join('');
+ document.getElementById('fmtF').innerHTML=Object.keys(FMT).filter(k=>fc[k]).map(k=>
+  `<button class="fc ${st.fmts.has(k)?'on':''}" onclick="toggleFmt('${k}')">${FMT[k]}<span class="n">${fc[k]}</span></button>`).join('');
+ document.getElementById('genreF').innerHTML=Object.keys(G).filter(k=>gc[k]).map(k=>
+  `<button class="fc ${st.genres.has(k)?'on':''}" onclick="toggleGenre('${k}')">${G[k]}<span class="n">${gc[k]}</span></button>`).join('');
+
+ const q=(st.q||'').trim().toLowerCase();
+ let list=ITEMS.filter(f=>{
+  if(st.fmts.size&&!st.fmts.has(f.fmt))return false;
+  if(st.genres.size&&!st.genres.has(f.genre))return false;
+  if(st.levels.size&&!f.levels.some(l=>st.levels.has(l)))return false;
+  if(q&&!(f.name+' '+f.desc+' '+G[f.genre]+' '+FMT[f.fmt]+' '+f.year).toLowerCase().includes(q))return false;
+  return true;});
+ list=sortItems(list);
+ document.getElementById('foundNum').textContent=list.length;
+ document.getElementById('totalNum').textContent=ITEMS.length;
+ const note=document.getElementById('fnote');
+ if(st.group==='level'){
+  const cards=list.reduce((s,f)=>s+(st.levels.size?f.levels.filter(l=>st.levels.has(l)).length:f.levels.length),0);
+  note.textContent='Карточек на экране: '+cards+'. Мультфильм показывается в каждом подходящем уровне.';
+ } else note.textContent='';
+
+ const b=document.getElementById('body');
+ if(!list.length){b.innerHTML='<div class="empty">Ничего не найдено, попробуйте сбросить фильтры.</div>';return;}
+ const draw=st.mode==='grid'?card:row;
+ const wrap=h=>`<div class="${st.mode==='grid'?'grid':'list'}">${h}</div>`;
+ if(st.group==='level'){
+  const keys=st.levels.size?Object.keys(LEVELS).filter(l=>st.levels.has(l)):Object.keys(LEVELS);
+  b.innerHTML=keys.map(l=>{const it=list.filter(f=>f.levels.includes(l));if(!it.length)return'';
+   return `<div class="sec"><div class="sech"><h3>Уровень ${l}</h3><hr><span class="cnt">${it.length}</span></div>
+    ${wrap(it.map(f=>draw(Object.assign({},f,{_lvl:l}))).join(''))}</div>`;}).join('')||'<div class="empty">Ничего не найдено.</div>';
+ } else if(st.group==='fmt'){
+  b.innerHTML=Object.keys(FMT).map(k=>{const it=list.filter(f=>f.fmt===k);if(!it.length)return'';
+   return `<div class="sec"><div class="sech"><h3>${FMT[k]}</h3><hr><span class="cnt">${it.length}</span></div>${wrap(it.map(draw).join(''))}</div>`;}).join('');
+ } else if(st.group==='genre'){
+  b.innerHTML=Object.keys(G).map(k=>{const it=list.filter(f=>f.genre===k);if(!it.length)return'';
+   return `<div class="sec"><div class="sech"><h3>${G[k]}</h3><hr><span class="cnt">${it.length}</span></div>${wrap(it.map(draw).join(''))}</div>`;}).join('');
+ } else b.innerHTML=wrap(list.map(draw).join(''));
+ hydrate();
+}
+
+function openItem(id){
+ const f=ITEMS[id]; if(!f) return;
+ document.getElementById('mTitle').textContent=f.name;
+ document.getElementById('mMeta').textContent=`${f.year} · ${G[f.genre]} · ${FMT[f.fmt]}`;
+ document.getElementById('mDesc').textContent=f.desc;
+ document.getElementById('mBadges').innerHTML=`<span class="b-fmt fmt-${f.fmt}">${FMT[f.fmt]}</span>`+f.levels.map(l=>`<span class="m-lv">${l}</span>`).join('');
+ document.getElementById('mWatch').innerHTML=`<a class="pri" href="${yt(f)}" target="_blank" rel="noopener">Смотреть на YouTube</a>
+  <a href="${trt(f)}" target="_blank" rel="noopener">TRT Çocuk</a>`;
+ document.getElementById('mInfo').innerHTML=`<a href="${imdb(f)}" target="_blank" rel="noopener">IMDb</a>
+  <a href="${kino(f)}" target="_blank" rel="noopener">Кинопоиск</a><a href="${wiki(f)}" target="_blank" rel="noopener">Википедия</a>`;
+ document.getElementById('mTip').textContent='Уровень '+f.levels.join(', ')+'. Смотрите с турецкими субтитрами и пересматривайте серию дважды, второй раз без субтитров.';
+ const pw=document.getElementById('mPoster');
+ pw.style.background='linear-gradient('+hue(f.name)+')';
+ pw.innerHTML=`<span class="p-glyph"><svg width="26" height="26" viewBox="0 0 24 24" fill="none">${GLYPH[f.genre]||GLYPH.preschool}</svg></span>
+  <span class="p-title" style="font-size:19px">${f.name}</span><span class="p-year">${f.year}</span>`;
+ resolvePoster(f).then(p=>{if(!p)return;const img=document.createElement('img');img.src=p;img.alt='';img.onerror=()=>img.remove();pw.appendChild(img);});
+ document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+function randomItem(){openItem(ITEMS[Math.floor(Math.random()*ITEMS.length)].id);}
+function renderFaq(){document.getElementById('faqList').innerHTML=FAQ.map((f,i)=>
+ `<div class="faq" id="faq-${i}"><div class="faq-q" onclick="toggleFaq(${i})"><span>${f.q}</span><span>+</span></div><div class="faq-a">${f.a}</div></div>`).join('');}
+function toggleFaq(i){document.getElementById('faq-'+i).classList.toggle('open');}
+function stats(){
+ document.getElementById('stTotal').textContent=ITEMS.length;
+ document.getElementById('stA1').textContent=ITEMS.filter(f=>f.levels.includes('A1')).length;
+ const y=ITEMS.map(f=>f.year);document.getElementById('stYears').textContent=Math.min(...y)+"-"+Math.max(...y);
+}
+document.getElementById('search').addEventListener('input',e=>{st.q=e.target.value;if(st.view!=='catalog')setView('catalog');else render();});
+renderNav();renderFaq();stats();markKey();
+if(RUNTIME_KEY){try{document.getElementById('kbInput').value=RUNTIME_KEY;}catch(e){}}
+setView('home');
+</script>
+<script>
+/* ==========================================================================
+   Alterna Çizgi v2
+   Интерактивная визуализация, дорожная карта, «Мои мультики», ассистент Кеди
+   ========================================================================== */
+
+/* ---------- 1. Мои мультики: хранилище ---------- */
+const MYKEY='alterna_my_v1';
+let MY={};
+try{ MY=JSON.parse(localStorage.getItem(MYKEY)||'{}')||{}; }catch(e){ MY={}; }
+function saveMy(){ try{ localStorage.setItem(MYKEY,JSON.stringify(MY)); }catch(e){} }
+const STAT={want:'Хочу посмотреть',watching:'Смотрю',done:'Посмотрел'};
+const STATSHORT={want:'Хочу',watching:'Смотрю',done:'Посмотрел'};
+function myStatus(id){ return MY[id] ? MY[id].s : null; }
+function myList(){ return Object.keys(MY).map(k=>+k).filter(id=>ITEMS[id]).sort((a,b)=>(MY[b].t||0)-(MY[a].t||0)); }
+function myCount(s){ return myList().filter(id=>MY[id].s===s).length; }
+function stamp(){ return new Date().getTime(); }
+
+function setStatus(id,s,quiet){
+  const cur=myStatus(id);
+  if(cur===s){ delete MY[id]; } else { MY[id]={s:s,t:stamp()}; }
+  saveMy();
+  if(!quiet){
+    const f=ITEMS[id];
+    if(myStatus(id)) showBubble('«'+f.name+'» — статус: <b>'+STAT[myStatus(id)]+'</b>. Отметки видны в разделе «Мои мультики».',5200);
+    else showBubble('Убрал «'+f.name+'» из вашего списка.',3600);
+  }
+  refreshAll();
+}
+function toggleFav(e,id){
+  e.stopPropagation();
+  if(myStatus(id)){ delete MY[id]; saveMy(); showBubble('Убрал «'+ITEMS[id].name+'» из списка.',3200); }
+  else { MY[id]={s:'want',t:stamp()}; saveMy(); showBubble('Добавил «'+ITEMS[id].name+'» в <b>Мои мультики</b>. Посмотрели — отметьте галочкой, и дорожная карта закрасится.',6000); }
+  refreshAll();
+}
+function refreshAll(){
+  if(st.view==='catalog') render();
+  if(st.view==='my') renderMy();
+  if(st.view==='home'){ renderRoadmap(); if(VIZ==='me') renderViz('me'); }
+  renderNav(); updateHeroMy();
+}
+
+/* ---------- 2. Карточки каталога с отметками ---------- */
+card=function(f){
+  const s=myStatus(f.id);
+  return `<div class="card ${s?'instatus s-'+s:''}" onclick="if(!event.target.closest('a')&&!event.target.closest('button'))openItem(${f.id})">
+  ${poster(f)}
+  <button class="favb ${s?'on':''}" title="${s?STAT[s]:'Добавить в мои мультики'}" onclick="toggleFav(event,${f.id})">${s==='done'?'✓':(s?'★':'♡')}</button>
+  <div class="cb"><h4>${f.name}</h4><div class="meta">${f.year} · ${G[f.genre]}</div><p>${f.desc}</p>
+   <div class="links"><a href="${yt(f)}" target="_blank" rel="noopener">Смотреть</a><a href="${imdb(f)}" target="_blank" rel="noopener">IMDb</a></div></div>
+  <div class="stbtns">${Object.keys(STAT).map(k=>
+    `<button class="${k} ${s===k?'on':''}" onclick="event.stopPropagation();setStatus(${f.id},'${k}')">${STATSHORT[k]}</button>`).join('')}</div></div>`;
+};
+row=function(f){
+  const s=myStatus(f.id);
+  return `<div class="row" onclick="if(!event.target.closest('a')&&!event.target.closest('button'))openItem(${f.id})">${poster(f,true)}
+  <div class="ri"><h4>${f.name}</h4><div class="meta">${f.year} · ${G[f.genre]}${s?' · '+STAT[s]:''}</div></div>
+  <div class="rm"><span class="b-lvl">${f._lvl||f.levels[0]}</span><span class="b-fmt fmt-${f.fmt}">${FMT[f.fmt]}</span></div>
+  <div class="rl"><button class="favb" style="position:static;width:30px;height:30px;${s?'background:var(--coral);border-color:transparent;':''}"
+    onclick="toggleFav(event,${f.id})" title="${s?STAT[s]:'В мои мультики'}">${s==='done'?'✓':(s?'★':'♡')}</button>
+   <a href="${yt(f)}" target="_blank" rel="noopener">Смотреть</a><a href="${imdb(f)}" target="_blank" rel="noopener">IMDb</a></div></div>`;
+};
+
+/* ---------- 3. Статусы внутри карточки мультфильма ---------- */
+const _openItem=openItem;
+openItem=function(id){
+  _openItem(id);
+  const tip=document.getElementById('mTip');
+  let box=document.getElementById('mmyBox');
+  if(!box){ box=document.createElement('div'); box.id='mmyBox'; box.className='mmy'; tip.parentNode.insertBefore(box,tip); }
+  const s=myStatus(id);
+  box.innerHTML=`<span style="align-self:center;font-size:12.5px;color:var(--muted);font-weight:800;">В мой список:</span>`+
+    Object.keys(STAT).map(k=>`<button class="${k} ${s===k?'on':''}" onclick="setStatus(${id},'${k}');openItem(${id});">${STAT[k]}</button>`).join('');
+};
+
+/* ---------- 4. Раздел «Мои мультики» ---------- */
+let MYTAB='all';
+function setMyTab(t){ MYTAB=t; renderMy(); }
+function renderMy(){
+  const ids=myList();
+  const done=myCount('done'), want=myCount('want'), watching=myCount('watching');
+  const pct=ids.length?Math.round(done/ids.length*100):0;
+  const ring=document.getElementById('ringFg');
+  if(ring) ring.setAttribute('stroke-dashoffset', String(314-314*pct/100));
+  document.getElementById('ringPct').textContent=pct+'%';
+
+  const lv={}; ids.forEach(id=>ITEMS[id].levels.forEach(l=>lv[l]=(lv[l]||0)+1));
+  const focus=Object.keys(lv).sort((a,b)=>lv[b]-lv[a])[0]||'—';
+  document.getElementById('myStats').innerHTML=
+    [[ids.length,'в списке'],[want,'хочу посмотреть'],[watching,'смотрю сейчас'],[done,'посмотрено'],[focus,'основной уровень']]
+    .map(s=>`<div class="mystat"><b>${s[0]}</b><span>${s[1]}</span></div>`).join('');
+  document.getElementById('myHint').innerHTML = ids.length
+    ? (done>=5 ? 'Отличный темп. Каждые 3 отмеченных мультика на уровне открывают следующую станцию дорожной карты на главной.'
+              : 'Смотрите по одной серии в день и отмечайте «Посмотрел» — прогресс подтянет дорожную карту на главной.')
+    : 'Список пока пуст.';
+
+  const counts={all:ids.length,want:want,watching:watching,done:done};
+  const tabs=[['all','Все'],['want','Хочу посмотреть'],['watching','Смотрю'],['done','Посмотрел']];
+  document.getElementById('myTabs').innerHTML=tabs.map(t=>
+    `<button class="${MYTAB===t[0]?'on':''}" onclick="setMyTab('${t[0]}')">${t[1]}<i>${counts[t[0]]}</i></button>`).join('');
+
+  const show=ids.filter(id=>MYTAB==='all'||MY[id].s===MYTAB);
+  const body=document.getElementById('myBody');
+  if(!show.length){
+    body.innerHTML=`<div class="emptybox">
+      <svg width="76" height="76" viewBox="0 0 48 48" fill="none" style="opacity:.9">
+        <path d="M11 16 L10 6 L19 11 Z" fill="#fff2c9" stroke="#3b2d5c" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M37 16 L38 6 L29 11 Z" fill="#fff2c9" stroke="#3b2d5c" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="24" cy="26" r="15" fill="#fff8ea" stroke="#3b2d5c" stroke-width="2"/>
+        <g class="eye"><circle cx="18.5" cy="24" r="2.5" fill="#3b2d5c"/><circle cx="29.5" cy="24" r="2.5" fill="#3b2d5c"/></g>
+        <path d="M20 33.5c1.6 1.6 6.4 1.6 8 0" stroke="#3b2d5c" stroke-width="2" stroke-linecap="round"/></svg>
+      <h3>${ids.length?'В этой вкладке пока пусто':'Полка ещё пустая'}</h3>
+      <p>${ids.length?'Переключите вкладку или добавьте новые мультфильмы из каталога.':'Откройте каталог и нажмите сердечко на любом мультфильме. Или попросите Кеди подобрать мультик под ваш уровень.'}</p>
+      <button class="ebtn" onclick="setView('catalog')">Открыть каталог</button>
+      <button class="ebtn" style="background:var(--card2);box-shadow:none;margin-left:8px;" onclick="askAsst()">Спросить Кеди</button>
+    </div>`;
+    return;
+  }
+  body.innerHTML=`<div class="grid">${show.map(id=>card(ITEMS[id])).join('')}</div>`;
+  hydrate();
+}
+
+/* ---------- 5. Дорожная карта ---------- */
+const STAGES=[
+ {l:'A1',t:'Первые слова',goal:'Привыкнуть к звучанию, поймать первые сотни слов. 15 минут в день, 2–3 недели.',c:'135deg,#7ee0f5,#3fa9d6'},
+ {l:'A2',t:'Простые фразы',goal:'Держать сюжет без русских субтитров. Речь быстрее, фразы длиннее.',c:'135deg,#8fe6c4,#3ec9a7'},
+ {l:'B1',t:'Понимаю разговор',goal:'Смотреть школьные и семейные истории целиком, ловить шутки.',c:'135deg,#ffd97a,#ffb03a'},
+ {l:'B2',t:'Смотрю без пауз',goal:'Полный метр и подростковые сериалы, сленг и игра слов.',c:'135deg,#ffaec4,#f4709a'},
+ {l:'C1',t:'Выпускной',goal:'Мультфильмы своё отработали. Дальше турецкие сериалы, YouTube и подкасты без адаптации.',c:'135deg,#c6b3ff,#9b6bff',final:true}
+];
+const STAGE_GOAL=3;
+function stageItems(l){ return ITEMS.filter(f=>f.levels[0]===l).concat(ITEMS.filter(f=>f.levels.includes(l)&&f.levels[0]!==l)); }
+function stageDone(l){ return stageItems(l).filter(f=>myStatus(f.id)==='done').length; }
+function renderRoadmap(){
+  const wrap=document.getElementById('rmap'); if(!wrap) return;
+  let totalPts=0, maxPts=0;
+  wrap.innerHTML=STAGES.map((s,i)=>{
+    const items=stageItems(s.l), d=stageDone(s.l), pts=Math.min(d,STAGE_GOAL);
+    if(!items.length){
+      const readyAll=STAGES.filter(x=>stageItems(x.l).length).every(x=>stageDone(x.l)>=STAGE_GOAL);
+      return `<div class="rst ${readyAll?'done':''}">
+        <div class="rdot" style="background:linear-gradient(${s.c})">${s.l}</div>
+        <h4>${s.t}</h4><p class="rgoal">${s.goal}</p>
+        <div class="rmini"><i style="width:${readyAll?100:0}%"></i></div>
+        <div style="font-size:11.5px;color:var(--muted);font-weight:800;text-align:center;margin-bottom:9px;">
+          ${readyAll?'маршрут пройден':'откроется после B2'}</div>
+        <div class="rchips"><button class="rchip" onclick="setView('where')"><span class="tick">→</span><span class="nm">Где смотреть дальше</span></button>
+        <button class="rchip" onclick="setView('faq')"><span class="tick">?</span><span class="nm">Частые вопросы</span></button></div>
+      </div>`;
+    }
+    totalPts+=pts; maxPts+=STAGE_GOAL;
+    const chips=items.slice(0,4).map(f=>{
+      const seen=myStatus(f.id)==='done';
+      return `<button class="rchip ${seen?'seen':''}" onclick="openItem(${f.id})" title="${f.name}">
+        <span class="tick">${seen?'✓':''}</span><span class="nm">${f.name}</span></button>`;}).join('');
+    return `<div class="rst ${d>=STAGE_GOAL?'done':''}">
+      <div class="rdot" style="background:linear-gradient(${s.c})">${s.l}</div>
+      <h4>${s.t}</h4><p class="rgoal">${s.goal}</p>
+      <div class="rmini"><i style="width:${Math.round(pts/STAGE_GOAL*100)}%"></i></div>
+      <div style="font-size:11.5px;color:var(--muted);font-weight:800;text-align:center;margin-bottom:9px;">
+        ${d} из ${STAGE_GOAL} отмечено · всего ${items.length}</div>
+      <div class="rchips">${chips}</div>
+      <button class="rmore" onclick="goCatalog({level:'${s.l}'})">Все ${items.length} на уровне ${s.l}</button>
+    </div>`;
+  }).join('');
+  const pct=maxPts?Math.round(totalPts/maxPts*100):0;
+  setTimeout(()=>{ const f=document.getElementById('rbarFill'); if(f) f.style.width=pct+'%'; },60);
+  const withItems=STAGES.filter(s=>stageItems(s.l).length);
+  const cur=withItems.find(s=>stageDone(s.l)<STAGE_GOAL)||STAGES[STAGES.length-1];
+  document.getElementById('rbarTxt').textContent=pct+'% маршрута · вы на станции '+cur.l;
+}
+
+/* ---------- 6. Инструкция ---------- */
+const HOWTO=[
+ ['Выберите уровень','Начните с A1, даже если что-то знаете. Кликните по уровню в каталоге или прямо на графике ниже.','135deg,#7ee0f5,#3fa9d6'],
+ ['Соберите полку','Сердечко на карточке кладёт мультик в «Мои мультики». Четыре-пять названий на неделю — этого достаточно.','135deg,#ffd97a,#ffb03a'],
+ ['Смотрите циклом','Серия с турецкими субтитрами, затем та же серия без них. Второй просмотр даёт больше, чем новая серия.','135deg,#8fe6c4,#3ec9a7'],
+ ['Отмечайте прогресс','Статусы «Смотрю» и «Посмотрел» закрашивают дорожную карту и показывают, когда пора на уровень выше.','135deg,#ffaec4,#f4709a'],
+ ['Спросите Кеди','Кот в правом нижнем углу подберёт мультик по уровню, жанру и формату за три вопроса.','135deg,#c6b3ff,#9b6bff']
+];
+function renderHowto(){
+  const el=document.getElementById('howto'); if(!el) return;
+  el.innerHTML=HOWTO.map((h,i)=>`<div class="hw">
+    <div class="hwn" style="background:linear-gradient(${h[2]})">${i+1}</div>
+    <h4>${h[0]}</h4><p>${h[1]}</p>
+    <div class="spark" style="background:linear-gradient(${h[2]})"></div></div>`).join('');
+}
+
+/* ---------- 7. Интерактивная визуализация ---------- */
+let VIZ='level';
+const VIZTABS=[['level','По уровням'],['genre','По жанрам'],['year','По годам'],['fmt','По форматам'],['me','Мой прогресс']];
+const LVLC={A1:'135deg,#7ee0f5,#3fa9d6',A2:'135deg,#8fe6c4,#3ec9a7',B1:'135deg,#ffd97a,#ffb03a',B2:'135deg,#ffaec4,#f4709a',C1:'135deg,#c6b3ff,#9b6bff'};
+const GC={preschool:'#7ee0f5',adventure:'#ffd97a',edu:'#8fe6c4',comedy:'#ffaec4',folk:'#c6b3ff',family:'#ffc39b',science:'#b9e88b'};
+const FC={serial:'#7ee0f5',film:'#ffd97a',short:'#8fe6c4',dub:'#ffaec4'};
+
+function setViz(v){ VIZ=v; renderVizTabs(); renderViz(v); }
+function renderVizTabs(){
+  const el=document.getElementById('viztabs'); if(!el) return;
+  el.innerHTML=VIZTABS.map(t=>`<button class="${VIZ===t[0]?'on':''}" onclick="setViz('${t[0]}')">${t[1]}</button>`).join('');
+}
+function tipOn(e,html){
+  const c=document.getElementById('vizcard'), t=document.getElementById('vtip');
+  if(!c||!t) return;
+  if(t.parentNode!==c) c.appendChild(t);
+  t.innerHTML=html; t.classList.add('on');
+  const r=c.getBoundingClientRect();
+  let x=e.clientX-r.left+15, y=e.clientY-r.top-14;
+  x=Math.max(8,Math.min(x,c.clientWidth-t.offsetWidth-10));
+  y=Math.max(4,Math.min(y,c.clientHeight-t.offsetHeight-4));
+  t.style.left=x+'px'; t.style.top=y+'px';
+}
+function tipOff(){ const t=document.getElementById('vtip'); if(t) t.classList.remove('on'); }
+
+function renderViz(v){
+  const box=document.getElementById('vizcard'); if(!box) return;
+  const lc={},gc={},fc={},yc={};
+  ITEMS.forEach(f=>{ f.levels.forEach(l=>lc[l]=(lc[l]||0)+1); gc[f.genre]=(gc[f.genre]||0)+1;
+    fc[f.fmt]=(fc[f.fmt]||0)+1; yc[f.year]=(yc[f.year]||0)+1; });
+
+  if(v==='level'){
+    const keys=Object.keys(LEVELS).filter(l=>lc[l]);
+    const max=Math.max(...keys.map(k=>lc[k]));
+    box.innerHTML=`<p class="vizhint">Сколько мультфильмов подходит каждому уровню. Один мультфильм может стоять на двух уровнях, если он растёт вместе со зрителем. Клик открывает уровень в каталоге.</p>`+
+      keys.map(l=>`<div class="vrow" onclick="goCatalog({level:'${l}'})"
+        onmousemove="tipOn(event,'Уровень ${l}: <b>${lc[l]}</b> мультфильмов, ${Math.round(lc[l]/ITEMS.length*100)}% каталога')" onmouseleave="tipOff()">
+        <div class="vlab">${l}<small>${LEVELS[l].sub}</small></div>
+        <div class="vtrack"><div class="vfill" data-w="${Math.round(lc[l]/max*100)}" style="background:linear-gradient(${LVLC[l]})"></div></div>
+        <div class="vnum">${lc[l]}</div></div>`).join('')+
+      `<div class="vgrid2" style="margin-top:16px;">
+        <div class="vmini" onclick="goCatalog({level:'A1'})"><b>${lc.A1||0}</b><span>можно смотреть с нуля</span></div>
+        <div class="vmini" onclick="goCatalog({})"><b>${ITEMS.length}</b><span>всего в каталоге</span></div>
+        <div class="vmini" onclick="setViz('year')"><b>${Math.max(...ITEMS.map(f=>f.year))-Math.min(...ITEMS.map(f=>f.year))}</b><span>лет истории анимации</span></div>
+      </div>`;
+    animate();
+  }
+
+  else if(v==='genre'){
+    const keys=Object.keys(G).filter(k=>gc[k]).sort((a,b)=>gc[b]-gc[a]);
+    const total=keys.reduce((s,k)=>s+gc[k],0), C=2*Math.PI*80;
+    let off=0;
+    const segs=keys.map(k=>{ const len=gc[k]/total*C; const s=`<circle cx="110" cy="110" r="80" fill="none" stroke="${GC[k]}" stroke-width="34"
+      stroke-dasharray="0 ${C}" data-len="${len}" data-off="${-off}" style="transition:stroke-dasharray .9s cubic-bezier(.22,1,.36,1);cursor:pointer"
+      onclick="goCatalog({genre:'${k}'})" onmousemove="tipOn(event,'${G[k]}: <b>${gc[k]}</b> · ${Math.round(gc[k]/total*100)}%')" onmouseleave="tipOff()"
+      stroke-dashoffset="${-off}"></circle>`; off+=len; return s; }).join('');
+    box.innerHTML=`<p class="vizhint">Из чего состоит каталог. Наведите на сектор или строку легенды, клик открывает жанр в каталоге.</p>
+      <div class="vdonut">
+        <svg width="220" height="220" style="transform:rotate(-90deg)">${segs}
+          <text x="110" y="104" text-anchor="middle" fill="#f2edff" font-size="30" font-family="Baloo 2" font-weight="800"
+            transform="rotate(90 110 110)">${total}</text>
+          <text x="110" y="124" text-anchor="middle" fill="#a89ccb" font-size="12" font-weight="700"
+            transform="rotate(90 110 110)">мультфильмов</text></svg>
+        <div class="vlegend">${keys.map(k=>`<div class="vleg" onclick="goCatalog({genre:'${k}'})">
+          <i style="background:${GC[k]}"></i>${G[k]}<b>${gc[k]}</b></div>`).join('')}</div></div>`;
+    setTimeout(()=>{ box.querySelectorAll('circle[data-len]').forEach(c=>{
+      c.setAttribute('stroke-dasharray', c.dataset.len+' '+(C-c.dataset.len)); }); },60);
+  }
+
+  else if(v==='year'){
+    const years=Object.keys(yc).map(Number).sort((a,b)=>a-b);
+    const max=Math.max(...years.map(y=>yc[y]));
+    box.innerHTML=`<p class="vizhint">Годы выхода. Виден бум турецкой детской анимации после 2010 года: почти весь каталог свежий, а значит и язык в нём современный. Клик по столбику ищет мультфильмы этого года.</p>
+      <div class="vyears">${years.map(y=>`<div class="vy" onclick="goCatalog({q:'${y}'})"
+        onmousemove="tipOn(event,'${y}: <b>${yc[y]}</b> ${yc[y]===1?'мультфильм':'мультфильмов'}')" onmouseleave="tipOff()">
+        <div class="col" data-h="${Math.round(yc[y]/max*100)}"></div><small>${y}</small></div>`).join('')}</div>`;
+    setTimeout(()=>{ box.querySelectorAll('.col').forEach((c,i)=>{ setTimeout(()=>c.style.height=c.dataset.h+'%', i*18); }); },50);
+  }
+
+  else if(v==='fmt'){
+    const keys=Object.keys(FMT).filter(k=>fc[k]);
+    const total=keys.reduce((s,k)=>s+fc[k],0);
+    const note={serial:'Короткие серии по 11–15 минут, лучший формат для ежедневной привычки.',
+      film:'Полный метр, 70–90 минут. Берите, когда уверенно держите серию без пауз.',
+      short:'Короткометражки и скетчи, почти без диалогов. Хороши для самого начала.',
+      dub:'Знакомые мировые мультфильмы по-турецки: сюжет вы уже знаете, силы уходят только на язык.'};
+    box.innerHTML=`<p class="vizhint">Форматы каталога. Полоса показывает доли, клик открывает формат в каталоге.</p>
+      <div class="vstack">${keys.map(k=>`<div class="vseg" data-w="${fc[k]/total*100}" style="background:${FC[k]}"
+        onclick="goCatalog({fmt:'${k}'})" onmousemove="tipOn(event,'${FMT[k]}: <b>${fc[k]}</b> · ${Math.round(fc[k]/total*100)}%')"
+        onmouseleave="tipOff()">${Math.round(fc[k]/total*100)}%</div>`).join('')}</div>
+      <div class="vgrid2">${keys.map(k=>`<div class="vmini" onclick="goCatalog({fmt:'${k}'})">
+        <b style="color:${FC[k]}">${fc[k]}</b><span style="display:block;font-weight:800;color:var(--ink);margin:2px 0 4px;">${FMT[k]}</span>
+        <span>${note[k]||''}</span></div>`).join('')}</div>`;
+    setTimeout(()=>{ box.querySelectorAll('.vseg').forEach(s=>s.style.width=s.dataset.w+'%'); },60);
+  }
+
+  else if(v==='me'){
+    const keys=Object.keys(LEVELS).filter(l=>stageItems(l).length);
+    const rows=keys.map(l=>{
+      const items=stageItems(l), d=items.filter(f=>myStatus(f.id)==='done').length,
+            w=items.filter(f=>myStatus(f.id)&&myStatus(f.id)!=='done').length;
+      return {l:l,total:items.length,d:d,w:w};
+    });
+    const totalDone=rows.reduce((s,r)=>s+r.d,0), inList=myList().length;
+    box.innerHTML=`<p class="vizhint">Ваша личная статистика. Считаются отметки из раздела «Мои мультики»: зелёное — посмотрено, голубое — в работе.</p>`+
+      rows.map(r=>`<div class="vrow" onclick="goCatalog({level:'${r.l}'})"
+        onmousemove="tipOn(event,'${r.l}: посмотрено <b>${r.d}</b>, в списке <b>${r.w}</b>, всего ${r.total}')" onmouseleave="tipOff()">
+        <div class="vlab">${r.l}<small>${r.d} из ${r.total}</small></div>
+        <div class="vtrack" style="display:flex">
+          <div class="vfill" data-w="${r.total?Math.round(r.d/r.total*100):0}" style="background:linear-gradient(90deg,#5bf2c0,#2fd0a6)"></div>
+          <div class="vfill" data-w="${r.total?Math.round(r.w/r.total*100):0}" style="background:linear-gradient(90deg,#3fd8ff,#7ee0f5);opacity:.55"></div>
+        </div><div class="vnum">${r.d}</div></div>`).join('')+
+      `<div class="vgrid2" style="margin-top:16px;">
+        <div class="vmini" onclick="setView('my')"><b>${inList}</b><span>в вашем списке</span></div>
+        <div class="vmini" onclick="setView('my')"><b>${totalDone}</b><span>отмечено «посмотрел»</span></div>
+        <div class="vmini" onclick="askAsst()"><b>${Math.max(0,15-Math.min(15,totalDone))}</b><span>отметок до конца маршрута</span></div>
+      </div>`;
+    animate();
+  }
+  function animate(){ setTimeout(()=>{ box.querySelectorAll('.vfill[data-w]').forEach(f=>f.style.width=f.dataset.w+'%'); },60); }
+}
+
+/* ---------- 8. Переходы в каталог ---------- */
+function goCatalog(o){
+  o=o||{};
+  st.levels=new Set(); st.fmts=new Set(); st.genres=new Set(); st.q='';
+  if(o.level) st.levels.add(o.level);
+  if(o.fmt) st.fmts.add(o.fmt);
+  if(o.genre) st.genres.add(o.genre);
+  if(o.q) st.q=o.q;
+  const s=document.getElementById('search'); if(s) s.value=st.q;
+  if(o.genre||o.fmt||o.q){ st.group='none'; }
+  else if(o.level){ st.group='level'; }
+  const gs=document.getElementById('groupSel'); if(gs) gs.value=st.group;
+  setView('catalog');
+}
+
+/* ---------- 9. Навигация и главная ---------- */
+NAV.splice(2,0,{id:'my',label:'Мои мультики'});
+const _renderNav=renderNav;
+renderNav=function(){
+  const n=myList().length;
+  document.getElementById('nav').innerHTML=NAV.map(x=>
+    `<button class="${st.view===x.id?'active':''}" onclick="setView('${x.id}')">${x.label}${x.id==='my'&&n?' <span style="background:var(--coral);color:#fff;border-radius:999px;padding:1px 7px;font-size:11px;">'+n+'</span>':''}</button>`).join('');
+};
+function updateHeroMy(){
+  const box=document.querySelector('#view-home .stats'); if(!box) return;
+  let el=document.getElementById('stMy');
+  if(!el){ el=document.createElement('div'); el.className='st'; el.style.cursor='pointer';
+    el.onclick=()=>setView('my'); el.innerHTML='<b id="stMyN">0</b><span>в моём списке</span>'; box.appendChild(el); }
+  document.getElementById('stMyN').textContent=myList().length;
+}
+const _setView=setView;
+setView=function(v){
+  _setView(v);
+  if(v==='my') renderMy();
+  if(v==='home'){ renderHowto(); renderRoadmap(); renderVizTabs(); renderViz(VIZ); updateHeroMy(); }
+};
+
+/* ---------- 10. Ассистент Кеди ---------- */
+const TIPS=[
+ 'Совет: одна серия дважды работает лучше, чем две разные серии. Второй раз смотрите без субтитров.',
+ 'Совет: выписывайте не слова, а целые реплики героев. В мультиках они короткие и повторяются.',
+ 'Совет: 15 минут каждый день сильнее, чем два часа в воскресенье. Ухо привыкает от регулярности.',
+ 'Совет: если не понимаете почти ничего, спуститесь на уровень ниже. Понимать 80% приятнее, чем мучиться.',
+ 'Совет: турецкие субтитры включать можно, русские — нет. Глаз читает быстрее, чем ухо слышит.',
+ 'Знали? В турецком порядок слов почти всегда «кто — что — делает». В детских мультиках это слышно идеально.'
+];
+let ASST={open:false,step:0,level:null,genre:null,fmt:null,shown:0};
+let BUB=null;
+
+function showBubble(html,ms){
+  const b=document.getElementById('asstBubble'); if(!b) return;
+  if(document.getElementById('asstPanel').classList.contains('on')) return;
+  document.getElementById('asstBubbleTxt').innerHTML=html;
+  b.classList.add('on');
+  clearTimeout(BUB); BUB=setTimeout(()=>b.classList.remove('on'), ms||6000);
+}
+function hideBubble(e){ if(e) e.stopPropagation(); document.getElementById('asstBubble').classList.remove('on'); clearTimeout(BUB); }
+function toggleAsst(){
+  const p=document.getElementById('asstPanel');
+  ASST.open=!p.classList.contains('on');
+  p.classList.toggle('on',ASST.open);
+  document.getElementById('asstDot').classList.remove('on');
+  hideBubble();
+  if(ASST.open&&!document.getElementById('asstBody').children.length) greet();
+}
+function askAsst(){ const p=document.getElementById('asstPanel'); if(!p.classList.contains('on')) toggleAsst(); startPick(); }
+function aScroll(){ const b=document.getElementById('asstBody'); b.scrollTop=b.scrollHeight; }
+function aMsg(html,who){
+  const b=document.getElementById('asstBody');
+  const d=document.createElement('div'); d.className='amsg '+(who||'bot'); d.innerHTML=html;
+  b.appendChild(d); aScroll(); return d;
+}
+function aNode(html){
+  const b=document.getElementById('asstBody');
+  const d=document.createElement('div'); d.innerHTML=html; const el=d.firstElementChild;
+  b.appendChild(el); aScroll(); return el;
+}
+function aType(fn,ms){
+  const b=document.getElementById('asstBody');
+  const t=document.createElement('div'); t.className='atyping'; t.innerHTML='<i></i><i></i><i></i>';
+  b.appendChild(t); aScroll();
+  setTimeout(()=>{ t.remove(); fn(); }, ms||750);
+}
+function aQr(list){
+  document.getElementById('asstQr').innerHTML=list.map(x=>`<button onclick="${x[1]}">${x[0]}</button>`).join('');
+}
+function greet(){
+  const n=myList().length, w=myList().filter(id=>MY[id].s==='watching')[0];
+  aMsg('Мяу! Я <b>Кеди</b>, знаю все '+ITEMS.length+' мультфильмов каталога. Подберу, что смотреть, за три вопроса.');
+  aType(()=>{
+    if(w) aMsg('Вы сейчас смотрите «'+ITEMS[w].name+'». Продолжим с него или найдём что-то новое?');
+    else if(n) aMsg('В вашем списке '+n+' мультфильмов. Открыть их или подобрать новые?');
+    else aMsg('Начнём с уровня A1: там речь медленная, а картинка объясняет половину смысла.');
+    mainQr();
+  },850);
+}
+function mainQr(){
+  aQr([['Подбери мультик','startPick()'],['Что посмотреть первым','firstPick()'],['Как учить по мультикам','howTo()'],
+       ['Совет дня','tipOfDay()'],['Мои мультики','openMy()']]);
+}
+function startPick(){
+  ASST.level=ASST.genre=ASST.fmt=null;
+  aMsg('Подбери мультик','me');
+  aType(()=>{ aMsg('Какой у вас уровень турецкого?');
+    const ls=Object.keys(LEVELS).filter(l=>ITEMS.some(f=>f.levels.includes(l)));
+    aQr(ls.map(l=>[l==='A1'?'A1, с нуля':l,"pickLevel('"+l+"')"]).concat([['Не знаю','levelTest()']])); },700);
+}
+function levelTest(){
+  aMsg('Не знаю','me');
+  aType(()=>{ aMsg('Тогда быстрый вопрос. Включите турецкий детский мультик — что происходит?');
+    aQr([['Слышу поток звуков',"pickLevel('A1')"],['Ловлю знакомые слова',"pickLevel('A2')"],
+         ['Понимаю большую часть',"pickLevel('B1')"],['Понимаю почти всё',"pickLevel('B2')"]]); },700);
+}
+function pickLevel(l){
+  ASST.level=l; aMsg('Уровень '+l,'me');
+  aType(()=>{ aMsg('Записал: <b>'+l+'</b>, '+LEVELS[l].sub.toLowerCase()+'. Какая тема ближе?');
+    const gs=Object.keys(G).filter(k=>ITEMS.some(f=>f.genre===k&&f.levels.includes(l)));
+    aQr(gs.map(k=>[G[k],"pickGenre('"+k+"')"]).concat([['Любая','pickGenre(null)']])); },700);
+}
+function pickGenre(g){
+  ASST.genre=g; aMsg(g?G[g]:'Любая тема','me');
+  aType(()=>{ aMsg('И последнее: сколько времени за раз?');
+    aQr([['10–15 минут, сериал',"pickFmt('serial')"],['Целый фильм',"pickFmt('film')"],
+         ['Знакомый сюжет, дубляж',"pickFmt('dub')"],['Не важно','pickFmt(null)']]); },700);
+}
+function pickFmt(f){
+  ASST.fmt=f; aMsg(f?FMT[f]:'Не важно','me');
+  aType(()=>results(),900);
+}
+function pool(){
+  let p=ITEMS.filter(f=>(!ASST.level||f.levels.includes(ASST.level))&&(!ASST.genre||f.genre===ASST.genre)&&(!ASST.fmt||f.fmt===ASST.fmt));
+  if(!p.length) p=ITEMS.filter(f=>(!ASST.level||f.levels.includes(ASST.level))&&(!ASST.fmt||f.fmt===ASST.fmt));
+  if(!p.length) p=ITEMS.filter(f=>!ASST.level||f.levels.includes(ASST.level));
+  const fresh=p.filter(f=>myStatus(f.id)!=='done');
+  return (fresh.length?fresh:p).slice();
+}
+function recCard(f){
+  return `<div class="arec"><div class="amini" style="background:linear-gradient(${hue(f.name)})">${f.name.slice(0,2).toUpperCase()}</div>
+    <div class="ai"><h5>${f.name}</h5><p>${f.year} · ${G[f.genre]} · ${FMT[f.fmt]} · ${f.levels.join(', ')}</p></div>
+    <div class="ab"><button onclick="openItem(${f.id})">Открыть</button>
+      <button onclick="setStatus(${f.id},'want');this.textContent='В списке ✓'">+ В список</button></div></div>`;
+}
+function results(){
+  const p=pool();
+  if(!p.length){ aMsg('Под такие условия ничего не нашлось. Давайте ослабим фильтр.'); aQr([['Начать заново','startPick()'],['Показать A1','pickLevel(\'A1\')']]); return; }
+  const shuffled=p.sort(()=>Math.random()-0.5).slice(0,3);
+  aMsg('Вот что подойдёт'+(ASST.level?' на уровне <b>'+ASST.level+'</b>':'')+':');
+  shuffled.forEach((f,i)=>setTimeout(()=>{ aNode(recCard(f)); },i*220));
+  setTimeout(()=>{ aMsg('Смотрите с турецкими субтитрами и пересмотрите серию второй раз без них. Это и есть весь метод.');
+    aQr([['Ещё три варианта','results()'],['Добавить все три','addAll()'],['Начать заново','startPick()'],['Мои мультики','openMy()']]); },820);
+  ASST.last=shuffled.map(f=>f.id);
+}
+function addAll(){
+  (ASST.last||[]).forEach(id=>{ if(!myStatus(id)) MY[id]={s:'want',t:stamp()}; });
+  saveMy(); refreshAll();
+  aMsg('Добавить все три','me');
+  aType(()=>{ aMsg('Готово, они в разделе <b>Мои мультики</b>. Отмечайте «Посмотрел» — дорожная карта на главной закрасится.');
+    aQr([['Открыть мои мультики','openMy()'],['Подбери ещё','startPick()']]); },600);
+}
+function firstPick(){
+  aMsg('Что посмотреть первым','me');
+  aType(()=>{
+    aMsg('С нуля берите самую медленную речь. Три проверенных стартовых:');
+    const start=['Niloya','Pepee','Kukuli'].map(n=>ITEMS.find(f=>f.name===n)).filter(Boolean);
+    (start.length?start:ITEMS.filter(f=>f.levels[0]==='A1').slice(0,3)).forEach((f,i)=>setTimeout(()=>aNode(recCard(f)),i*220));
+    setTimeout(()=>{ aMsg('Одна серия в день, две недели подряд. Дальше сами услышите, что стало легче.');
+      aQr([['Подбери под меня','startPick()'],['Открыть каталог A1',"goCatalog({level:'A1'});toggleAsst()"],['Совет дня','tipOfDay()']]); },780);
+  },800);
+}
+function howTo(){
+  aMsg('Как учить по мультикам','me');
+  aType(()=>{ aMsg('Четыре шага, по 15 минут в день:<br>1. Уровень <b>A1</b>, даже если что-то знаете.<br>2. Только турецкие субтитры.<br>3. Одна серия дважды, второй раз без субтитров.<br>4. Забирайте пять целых реплик, а не отдельные слова.');
+    aQr([['Показать дорожную карту',"setView('home');toggleAsst();setTimeout(()=>document.querySelector('#rmap').scrollIntoView({behavior:'smooth',block:'center'}),300)"],
+         ['Подбери мультик','startPick()'],['Совет дня','tipOfDay()']]); },800);
+}
+function tipOfDay(){
+  aMsg('Совет дня','me');
+  aType(()=>{ aMsg(TIPS[Math.floor(Math.random()*TIPS.length)]); aQr([['Ещё совет','tipOfDay()'],['Подбери мультик','startPick()'],['Что посмотреть первым','firstPick()']]); },600);
+}
+function openMy(){
+  setView('my'); toggleAsst();
+}
+
+/* ---------- 11. Первый запуск ---------- */
+renderNav(); renderHowto(); renderRoadmap(); renderVizTabs(); renderViz(VIZ); updateHeroMy();
+setTimeout(()=>{
+  if(document.getElementById('asstPanel').classList.contains('on')) return;
+  const n=myList().length;
+  showBubble(n? 'Мяу! В вашем списке '+n+' мультфильмов. Помочь выбрать следующий?' :
+    'Мяу! Я <b>Кеди</b>. Подберу мультик под ваш уровень за три вопроса — нажмите на меня.', 9000);
+  document.getElementById('asstDot').classList.add('on');
+}, 6500);
+document.getElementById('asstBubble').addEventListener('click',e=>{ if(e.target.className!=='bx') toggleAsst(); });
+</script>
+</body>
+</html>
