@@ -6,6 +6,7 @@
 <title>Alterna Çizgi. Türkçe Çizgi Film</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script>try{if((localStorage.getItem('alterna_theme')||'light')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 <style>
   :root{
     --bg:#171233; --card:#211a45; --card2:#2b2258; --ink:#f2edff; --muted:#a89ccb;
@@ -523,6 +524,86 @@
   .fact .fmark{position:absolute;bottom:10px;right:13px;font-size:11px;color:var(--sun);font-weight:800;}
   @media (max-width:980px){ .clubtop{grid-template-columns:1fr;} .games{grid-template-columns:1fr;} }
   @media (max-width:560px){ .cprof{flex-direction:column;text-align:center;} .cava{margin:0 auto;} }
+
+  /* ============ v4: светлая тема по умолчанию + переключатель ============ */
+  :root{
+    color-scheme:light;
+    --bg:#fbf7ff; --card:#ffffff; --card2:#f3eefc; --ink:#2a2150; --muted:#6c608f;
+    --coral:#f5407a; --sky:#0e8fb4; --mint:#0d9b78; --sun:#b8760a; --grape:#7d4ce6;
+    --border:rgba(42,33,80,.14); --shadow:0 10px 28px rgba(90,70,150,.14);
+    --sunk:rgba(42,33,80,.05); --sunk2:rgba(42,33,80,.09); --hov:rgba(42,33,80,.08);
+    --edge:rgba(42,33,80,.28); --scrim:rgba(46,35,90,.45); --tpbg:rgba(255,255,255,.92);
+    --tip:#2a2150; --tipink:#ffffff; --dash:rgba(42,33,80,.2); --shc:rgba(90,70,150,.22);
+    --thumb:#d9cff0; --grid:rgba(42,33,80,.1); --bubstroke:rgba(42,33,80,.22);
+    --introbg:radial-gradient(circle at 50% 38%,#fff7e2,#ffe7f2 52%,#eae2ff 100%);
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#171233; --card:#211a45; --card2:#2b2258; --ink:#f2edff; --muted:#a89ccb;
+    --coral:#ff5c8a; --sky:#3fd8ff; --mint:#5bf2c0; --sun:#ffd166; --grape:#a97bff;
+    --border:rgba(255,255,255,.12); --shadow:0 10px 30px rgba(8,4,26,.55);
+    --sunk:rgba(0,0,0,.24); --sunk2:rgba(0,0,0,.3); --hov:rgba(255,255,255,.12);
+    --edge:rgba(255,255,255,.3); --scrim:rgba(8,4,26,.78); --tpbg:rgba(33,26,69,.92);
+    --tip:#0d0a22; --tipink:#f2edff; --dash:rgba(255,255,255,.18); --shc:rgba(8,4,26,.55);
+    --thumb:#3b3070; --grid:rgba(255,255,255,.07); --bubstroke:rgba(255,255,255,.35);
+    --introbg:radial-gradient(circle at 50% 40%,#2b2258,#171233 70%);
+  }
+  ::-webkit-scrollbar-thumb{background:var(--thumb);}
+
+  .tp{background:var(--tpbg);}
+  .navl button.active{color:var(--ink);}
+  .modal{background:var(--scrim);}
+  .hw:hover{border-color:var(--edge);}
+  .rmap::before{background:repeating-linear-gradient(90deg,var(--dash) 0 12px,transparent 12px 22px);}
+  .rst:hover{box-shadow:0 14px 30px var(--shc);border-color:var(--edge);}
+  .rdot{box-shadow:0 6px 16px var(--shc);}
+  .rmini{background:var(--sunk2);}
+  .rchip{background:var(--sunk);} .rchip:hover{background:var(--hov);}
+  .vrow:hover .vtrack{background:var(--hov);}
+  .vtrack{background:var(--sunk2);}
+  .vleg{background:var(--sunk);} .vleg:hover{background:var(--hov);}
+  .vtip{background:var(--tip);color:var(--tipink);}
+  .vmini{background:var(--sunk);}
+  .ring .bgc{stroke:var(--sunk2);}
+  .mytabs button.on{color:var(--ink);border-color:var(--edge);}
+  .mytabs button i{background:var(--hov);}
+  .stbtns button{background:var(--sunk);}
+  .arec .ab button{background:var(--sunk);}
+  .asst-qr{background:var(--sunk);}
+  .asst-fab{box-shadow:0 14px 34px var(--shc);}
+  .asst-bubble{box-shadow:0 16px 40px var(--shc);border:1px solid var(--border);}
+  .asst-panel{box-shadow:0 24px 60px var(--shc);}
+  .intro{background:var(--introbg);}
+  .ibar{background:var(--sunk2);}
+  .iskip{background:var(--sunk);} .iskip:hover{background:var(--hov);}
+  .sitem:hover{box-shadow:0 12px 26px var(--shc);}
+  .cava{box-shadow:0 10px 26px var(--shc);}
+  .cbar{background:var(--sunk2);}
+  .day{background:var(--sunk);}
+  .qopt{background:var(--sunk);} .qopt:hover:not(:disabled){background:var(--hov);}
+  .qstat div{background:var(--sunk);}
+  .fact:hover{border-color:var(--edge);}
+  .bub{stroke:var(--bubstroke);}
+  .bubwrap svg line{stroke:var(--grid);}
+  .bubwrap svg text{fill:var(--muted);}
+  .vdonut svg text{fill:var(--ink);}
+  .vdonut svg text+text{fill:var(--muted);}
+  .emptybox svg .eye circle{fill:#3b2d5c;}
+
+  /* переключатель темы */
+  .thm{position:relative;width:64px;height:34px;flex:none;border-radius:999px;border:1px solid var(--border);
+    background:var(--card2);cursor:pointer;display:flex;align-items:center;justify-content:flex-end;padding:0 9px;
+    transition:border-color .2s;}
+  :root[data-theme="dark"] .thm{justify-content:flex-start;}
+  .thm:hover{border-color:var(--edge);}
+  .thm .ic{font-size:13px;line-height:1;opacity:.6;}
+  .thm .tknob{position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-size:13px;background:linear-gradient(135deg,#ffd166,#ff8fb1);box-shadow:0 3px 9px var(--shc);
+    transition:transform .45s cubic-bezier(.3,1.5,.4,1),background .35s;}
+  :root[data-theme="dark"] .thm .tknob{transform:translateX(30px);background:linear-gradient(135deg,#c6b3ff,#7ee0f5);}
+  .thm:active .tknob{width:31px;}
+  .step .n[style*="ffb3d1"]{color:#2a2150;}
+  :root[data-theme="dark"] .step .n[style]{color:#171233;}
 </style>
 </head>
 <body>
@@ -1323,7 +1404,7 @@ function renderMy(){
       <h3>${ids.length?'В этой вкладке пока пусто':'Полка ещё пустая'}</h3>
       <p>${ids.length?'Переключите вкладку или добавьте новые мультфильмы из каталога.':'Откройте каталог и нажмите сердечко на любом мультфильме. Или попросите Кеди подобрать мультик под ваш уровень.'}</p>
       <button class="ebtn" onclick="setView('catalog')">Открыть каталог</button>
-      <button class="ebtn" style="background:var(--card2);box-shadow:none;margin-left:8px;" onclick="askAsst()">Спросить Кеди</button>
+      <button class="ebtn" style="background:var(--card2);color:var(--ink);border:1px solid var(--border);box-shadow:none;margin-left:8px;" onclick="askAsst()">Спросить Кеди</button>
     </div>`;
     return;
   }
@@ -1726,7 +1807,7 @@ const RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: redu
   if(t){
     const word='Alterna Çizgi';
     t.innerHTML=[...word].map((ch,i)=>ch===' '?' <span style="width:.32em;display:inline-block"></span>':
-      `<span style="animation-delay:${.28+i*.055}s;color:${i>7?'#ffd166':'#f2edff'}">${ch}</span>`).join('');
+      `<span style="animation-delay:${.28+i*.055}s;color:${i>7?'var(--sun)':'var(--ink)'}">${ch}</span>`).join('');
   }
   const b=document.getElementById('ibubbles');
   if(b){
@@ -1762,7 +1843,7 @@ window.__lastClick={x:0,y:0};
 document.addEventListener('click',e=>{ window.__lastClick={x:e.clientX,y:e.clientY}; },true);
 function burst(x,y,n){
   if(RM) return;
-  const col=['#3fd8ff','#ff5c8a','#5bf2c0','#ffd166','#a97bff','#fff'];
+  const col=['#3fd8ff','#ff5c8a','#5bf2c0','#ffd166','#a97bff','#ff9f68'];
   const cx=x||window.__lastClick.x||window.innerWidth/2, cy=y||window.__lastClick.y||window.innerHeight/2;
   for(let i=0;i<(n||16);i++){
     const d=document.createElement('div'); d.className='cft';
@@ -2048,6 +2129,44 @@ refreshAll=function(){ _refreshAll(); if(st.view==='club') renderClub(); };
 
 buildStrip(); renderNav(); renderVizTabs(); initReveal();
 setTimeout(()=>{ animHeroStats(); const el=document.querySelector('#view-home .hblock'); if(el) el.classList.add('in'); }, RM?100:2900);
+</script>
+<script>
+/* ==========================================================================
+   Alterna Çizgi v4 — светлая тема по умолчанию и переключатель
+   ========================================================================== */
+const TKEY='alterna_theme';
+function curTheme(){ return document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light'; }
+function applyTheme(t,announce){
+  if(t==='dark') document.documentElement.setAttribute('data-theme','dark');
+  else document.documentElement.removeAttribute('data-theme');
+  try{ localStorage.setItem(TKEY,t); }catch(e){}
+  const k=document.getElementById('tknob'), i=document.getElementById('tic');
+  if(k) k.textContent = t==='dark'?'🌙':'☀';
+  if(i) i.textContent = t==='dark'?'☀':'🌙';
+  const b=document.getElementById('thmBtn');
+  if(b) b.title = t==='dark'?'Включить светлую тему':'Включить тёмную тему';
+  if(announce&&typeof showBubble==='function'){
+    showBubble(t==='dark'?'Выключил свет — теперь смотрим в темноте. 🌙':'Включил свет, так ярче и веселее. ☀',4200);
+  }
+  if(st&&st.view==='home'&&typeof renderViz==='function') renderViz(VIZ);
+}
+function toggleTheme(){
+  const next = curTheme()==='dark'?'light':'dark';
+  applyTheme(next,true);
+  if(typeof burst==='function') burst(undefined,undefined,12);
+}
+(function mountToggle(){
+  const tp=document.querySelector('.topbar .tp'), rnd=document.querySelector('.topbar .rnd');
+  if(!tp) return;
+  const b=document.createElement('button');
+  b.className='thm'; b.id='thmBtn'; b.setAttribute('aria-label','Переключить тему');
+  b.innerHTML='<span class="ic" id="tic">🌙</span><span class="tknob" id="tknob">☀</span>';
+  b.onclick=toggleTheme;
+  tp.insertBefore(b, rnd||null);
+  let saved='light';
+  try{ saved=localStorage.getItem(TKEY)||'light'; }catch(e){}
+  applyTheme(saved==='dark'?'dark':'light',false);
+})();
 </script>
 </body>
 </html>
