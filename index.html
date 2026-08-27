@@ -604,6 +604,79 @@
   .thm:active .tknob{width:31px;}
   .step .n[style*="ffb3d1"]{color:#2a2150;}
   :root[data-theme="dark"] .step .n[style]{color:#171233;}
+
+  /* ============ v5: мобильный каталог ============ */
+  .stbtns .si{display:none;font-style:normal;font-size:14px;line-height:1;}
+  .stbtns button{display:flex;align-items:center;justify-content:center;gap:5px;min-height:30px;}
+
+  @media (max-width:760px){
+    .topbar{position:static;margin-top:10px;}
+    .tp{padding:10px 12px;gap:10px;}
+    .brand-sub{display:none;}
+    .navl{gap:4px;}
+    .navl button{padding:8px 11px;font-size:13px;}
+    .rnd{flex:1;justify-content:center;padding:11px 14px;font-size:13.5px;}
+  }
+
+  @media (max-width:560px){
+    /* фильтры: горизонтальная лента вместо переносов */
+    .lvlbar,.frow{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:3px;}
+    .lvlbar::-webkit-scrollbar,.frow::-webkit-scrollbar{display:none;}
+    .lvlbar .lb,.lp,.fc{flex:none;}
+    .toolbar{padding:13px;}
+    .trow{gap:8px;margin-bottom:10px;}
+    .sbox{flex:1 1 100%;min-width:0;padding:9px 12px;}
+    .sel{flex:1 1 100%;min-width:0;padding:8px 12px;gap:6px;}
+    .sel select{flex:1;min-width:0;font-size:13px;}
+    .sel label{font-size:9px;}
+    .vt{flex:1 1 100%;}
+    .vt button{flex:1;padding:8px 10px;}
+    .tbot{gap:8px;padding-top:10px;margin-top:10px;}
+    .reset{flex:1 1 100%;}
+
+    /* ключ TMDb: короткая версия */
+    .kb-txt{display:none;}
+    .keybar{padding:10px 12px;gap:8px;}
+    .keybar input{min-width:130px;padding:8px 11px;}
+    .kb-left{flex:none;min-width:0;}
+
+    /* плитка: бейдж формата не вылезает за постер */
+    .pb{gap:6px;}
+    .b-fmt{font-size:8.5px;padding:3px 7px;max-width:66%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .b-lvl{font-size:10.5px;padding:4px 9px;}
+    .cb{padding:11px 12px 12px;}
+    .cb h4{font-size:14.5px;}
+    .grid{gap:12px;}
+
+    /* список: перенос на строки вместо горизонтального вылета */
+    .row{flex-wrap:wrap;gap:9px 11px;padding:12px;}
+    .mini{width:44px;height:54px;}
+    .ri{flex:1 1 130px;}
+    .rm{flex:0 0 auto;margin-left:auto;}
+    .rl{flex:1 1 100%;justify-content:flex-start;gap:7px;}
+    .rl a{flex:1;text-align:center;padding:9px 8px;}
+  }
+
+  @media (max-width:520px){
+    /* статусы значками, чтобы «Посмотрел» не обрезался */
+    .stbtns{padding:0 10px 10px;gap:6px;}
+    .stbtns .sl{display:none;}
+    .stbtns .si{display:inline;}
+    .stbtns button{padding:8px 4px;}
+  }
+
+  @media (max-width:700px){
+    #view-where .steps{grid-template-columns:1fr!important;}
+  }
+  @media (max-width:520px){
+    .stbtns button{min-height:34px;}
+  }
+
+  .cb p,.cb h4,.ri h4,.p-title,.mdesc,.faq-q span{overflow-wrap:break-word;}
+  @media (max-width:380px){
+    .sel select{font-size:12px;}
+    .cb{padding:10px;}
+  }
 </style>
 </head>
 <body>
@@ -1303,6 +1376,7 @@ try{ MY=JSON.parse(localStorage.getItem(MYKEY)||'{}')||{}; }catch(e){ MY={}; }
 function saveMy(){ try{ localStorage.setItem(MYKEY,JSON.stringify(MY)); }catch(e){} }
 const STAT={want:'Хочу посмотреть',watching:'Смотрю',done:'Посмотрел'};
 const STATSHORT={want:'Хочу',watching:'Смотрю',done:'Посмотрел'};
+const SICON={want:'♡',watching:'▶',done:'✓'};
 function myStatus(id){ return MY[id] ? MY[id].s : null; }
 function myList(){ return Object.keys(MY).map(k=>+k).filter(id=>ITEMS[id]).sort((a,b)=>(MY[b].t||0)-(MY[a].t||0)); }
 function myCount(s){ return myList().filter(id=>MY[id].s===s).length; }
@@ -1341,7 +1415,7 @@ card=function(f){
   <div class="cb"><h4>${f.name}</h4><div class="meta">${f.year} · ${G[f.genre]}</div><p>${f.desc}</p>
    <div class="links"><a href="${yt(f)}" target="_blank" rel="noopener">Смотреть</a><a href="${imdb(f)}" target="_blank" rel="noopener">IMDb</a></div></div>
   <div class="stbtns">${Object.keys(STAT).map(k=>
-    `<button class="${k} ${s===k?'on':''}" onclick="event.stopPropagation();setStatus(${f.id},'${k}')">${STATSHORT[k]}</button>`).join('')}</div></div>`;
+    `<button class="${k} ${s===k?'on':''}" title="${STAT[k]}" aria-label="${STAT[k]}" onclick="event.stopPropagation();setStatus(${f.id},'${k}')"><i class="si">${SICON[k]}</i><span class="sl">${STATSHORT[k]}</span></button>`).join('')}</div></div>`;
 };
 row=function(f){
   const s=myStatus(f.id);
